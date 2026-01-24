@@ -1,0 +1,11 @@
+LTspice 24.0.12 for Windows
+Circuit: * C:\Users\juerg\Documents\_Workspaces\Saunasteuerung\Simulation\Spannungspruefung.asc
+Start Time: Mon Jan 19 20:39:30 2026
+solver = Normal
+Maximum thread count: 16
+tnom = 27
+temp = 27
+method = modified trap
+Direct Newton iteration for .op point succeeded.
+Total elapsed time: 0.142 seconds.
+

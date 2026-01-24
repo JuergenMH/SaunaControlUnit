@@ -6,3 +6,4 @@ This project is designed to add some comfort and safety topics
 - Enhanced comfort: Acceess via WLAN
 - Two relay banks to ensure the system in case of one relay fails
 
+Sorry, some documents are in German only ;-)
