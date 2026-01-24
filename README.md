@@ -6,4 +6,12 @@ This project is designed to add some comfort and safety topics
 - Enhanced comfort: Acceess via WLAN
 - Two relay banks to ensure the system in case of one relay fails
 
-Sorry, some documents are in German only ;-)
+Folders:
+Components: Datasheets and information hardware component related
+Documents:  Planning Documents
+SaunaPCB:   KiCAD folder for schematic and PCB design files
+Simulation: Folder for LTSpice simulation fils
+Firmware:   Planned for firmware files, currently empty
+
+
+Sorry, some documents are available in German only ;-)
