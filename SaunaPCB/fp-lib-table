@@ -1,0 +1,6 @@
+(fp_lib_table
+  (version 7)
+  (lib (name "SaunaProject")(type "KiCad")(uri "${KIPRJMOD}/Projectpretty.pretty")(options "")(descr "Sauna Control specific components"))
+  (lib (name "DCDC")(type "KiCad")(uri "${KIPRJMOD}/CONV_RSH2-2405S_H3-R")(options "")(descr "Sauna Control specific DC DC converter"))
+  (lib (name "Mornsun_ACDC")(type "KiCad")(uri "${KIPRJMOD}/Mornsun_ACDC.pretty")(options "")(descr "Sauna Control specific AC DC converter"))
+)

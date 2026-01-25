@@ -1,4 +1,4 @@
-27422630677507503
+27427938669991467
 Audio_Module
 Reverb_BTDR-1H
 Digital Reverberation Unit, http://www.belton.co.kr/inc/downfile.php?seq=17&file=pdf (footprint from http://www.uk-electronic.de/PDF/BTDR-1.pdf)
@@ -57875,6 +57875,13 @@ ceramic
 0
 3
 3
+DCDC
+CONV_RSH2-2405S_H3-R
+
+
+0
+7
+7
 Diode_SMD
 D_0201_0603Metric
 Diode SMD 0201 (0603 Metric), square (rectangular) end terminal, IPC-7351 nominal, (Body size source: https://www.vishay.com/docs/20052/crcw0201e3.pdf), generated with kicad-footprint-generator
@@ -69838,6 +69845,13 @@ module pcb
 0
 7
 7
+Mornsun_ACDC
+LHE05-20B24
+Mornsun AC-DC Converter
+
+0
+5
+5
 Motors
 Vybronics_VZ30C1T8219732L
 Vibration motor, 2.3-3.2V, 14000rpm, 0.7G, https://www.vybronics.com/wp-content/uploads/datasheet-files/Vybronics-VZ30C1T8219732L-datasheet.pdf
@@ -72630,14 +72644,14 @@ Terminal Block 3-pol RM7.5
 
 0
 3
-2
+3
 MyConnectors
 Terminal_Block_3_RM7.62
 Terminal Block 3-pol RM7.62
 
 0
 3
-2
+3
 MyFootprints
 EE_Logo_10x11
 
@@ -100057,6 +100071,13 @@ rotary encoder illuminated switch vertical
 0
 9
 8
+SaunaProject
+Current_Coil_15X14
+Current measure coil
+
+0
+2
+2
 Sensor
 ASAIR_AM2302_P2.54mm_Lead2.75mm_TabDown
 Temperature and humidity module, http://akizukidenshi.com/download/ds/aosong/AM2302.pdf

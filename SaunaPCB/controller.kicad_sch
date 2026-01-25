@@ -2143,7 +2143,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "PCM_Espressif:ESP32-S3-DevKitC"
+		(property "Footprint" "Espreessif ESP32:ESP32-S3-DevKitC"
 			(at 139.7 148.59 0)
 			(effects
 				(font
