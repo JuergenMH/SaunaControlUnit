@@ -199,6 +199,7 @@
         1.2,
         1.5,
         1.8,
+        2.0,
         3.5
       ],
       "tuning_pattern_settings": {
@@ -506,7 +507,7 @@
         "pcb_color": "rgba(0, 0, 0, 0.000)",
         "priority": 0,
         "schematic_color": "rgba(0, 0, 0, 0.000)",
-        "track_width": 3.0,
+        "track_width": 2.0,
         "via_diameter": 1.0,
         "via_drill": 1.8
       },
