@@ -1441,18 +1441,6 @@
 		)
 		(uuid 78f3b89a-c724-4a48-8bda-2017f3d52765)
 	)
-	(rectangle
-		(start 17.78 72.39)
-		(end 41.91 83.82)
-		(stroke
-			(width 0)
-			(type dash)
-		)
-		(fill
-			(type none)
-		)
-		(uuid 7d9c8884-9afd-4cdd-a7b7-dc23d049121b)
-	)
 	(text "Standby/On\nSwitch"
 		(exclude_from_sim no)
 		(at 20.574 39.878 0)
@@ -1474,17 +1462,6 @@
 			(justify left)
 		)
 		(uuid "51c3a536-0693-4f13-a3ca-40371a38f5ab")
-	)
-	(text "Overheat\nSensor"
-		(exclude_from_sim no)
-		(at 20.828 75.438 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left)
-		)
-		(uuid "711ab35f-73ec-4e8c-b6eb-250761c325e7")
 	)
 	(text "To controller"
 		(exclude_from_sim no)
@@ -1519,16 +1496,6 @@
 	)
 	(text "To controller"
 		(exclude_from_sim no)
-		(at 58.166 75.946 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-		)
-		(uuid "c60f561a-1f50-4c5e-8430-9738ff378931")
-	)
-	(text "To controller"
-		(exclude_from_sim no)
 		(at 58.166 40.386 0)
 		(effects
 			(font
@@ -1556,26 +1523,6 @@
 			(type default)
 		)
 		(uuid "56108ef7-0d56-4dd9-ab70-0176cbbe67db")
-	)
-	(wire
-		(pts
-			(xy 50.8 83.82) (xy 63.5 83.82)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "56f5444b-4a81-4f6c-8e73-c6a174ecdc17")
-	)
-	(wire
-		(pts
-			(xy 36.83 78.74) (xy 50.8 78.74)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "67349a3d-f299-4765-be18-f5beecc7397f")
 	)
 	(wire
 		(pts
@@ -1609,16 +1556,6 @@
 	)
 	(wire
 		(pts
-			(xy 50.8 81.28) (xy 50.8 83.82)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "8181ab68-5dfe-4f8b-a4ea-898c2d8b3d47")
-	)
-	(wire
-		(pts
 			(xy 36.83 27.94) (xy 50.8 27.94)
 		)
 		(stroke
@@ -1646,16 +1583,6 @@
 			(type default)
 		)
 		(uuid "ada880e6-f846-4121-859c-7277059b9c24")
-	)
-	(wire
-		(pts
-			(xy 36.83 81.28) (xy 50.8 81.28)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "c6561399-013f-44b4-932d-d97f4788e1a8")
 	)
 	(wire
 		(pts
@@ -1719,28 +1646,6 @@
 			)
 		)
 	)
-	(global_label "Overheat"
-		(shape input)
-		(at 50.8 78.74 0)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left)
-		)
-		(uuid "c872d76f-9c7f-4a83-83b0-0030d67004ff")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 66.364 78.74 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				(hide yes)
-			)
-		)
-	)
 	(global_label "Door_Contact"
 		(shape input)
 		(at 50.8 60.96 0)
@@ -1782,71 +1687,6 @@
 				)
 				(justify left)
 				(hide yes)
-			)
-		)
-	)
-	(symbol
-		(lib_id "power:GND")
-		(at 63.5 83.82 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "17764a1d-1ee2-49df-8886-250b8de53c52")
-		(property "Reference" "#PWR016"
-			(at 63.5 90.17 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Value" "GND"
-			(at 53.34 83.82 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 63.5 83.82 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 63.5 83.82 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 63.5 83.82 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "7f87dfa1-352c-4375-b1a9-48a5a829d022")
-		)
-		(instances
-			(project "SaunaPCB"
-				(path "/e6d8484d-2bb5-441d-9b2b-e37a9f2fa458/8da01db6-a1a1-4b01-9382-9f6e5fdc0347"
-					(reference "#PWR016")
-					(unit 1)
-				)
 			)
 		)
 	)
@@ -2438,73 +2278,6 @@
 			(project "SaunaPCB"
 				(path "/e6d8484d-2bb5-441d-9b2b-e37a9f2fa458/8da01db6-a1a1-4b01-9382-9f6e5fdc0347"
 					(reference "J3")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "MyConnectors:Terminal_Block_2")
-		(at 36.83 81.28 90)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "cab2792c-46ac-42b1-9aed-c5835fad0069")
-		(property "Reference" "J6"
-			(at 22.86 79.248 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "KL2RM5.08"
-			(at 25.654 81.28 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" "MyConnectors:Terminal_Block_2_RM5.08"
-			(at 36.83 81.28 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 36.83 81.28 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "2 pol screw terminal"
-			(at 36.83 81.28 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "2"
-			(uuid "db5712ce-7a9f-4061-8263-0a462f137515")
-		)
-		(pin "1"
-			(uuid "d0e1b325-ec06-4d8a-a1f9-def7d449736b")
-		)
-		(instances
-			(project "SaunaPCB"
-				(path "/e6d8484d-2bb5-441d-9b2b-e37a9f2fa458/8da01db6-a1a1-4b01-9382-9f6e5fdc0347"
-					(reference "J6")
 					(unit 1)
 				)
 			)
