@@ -4661,7 +4661,7 @@
 	)
 	(wire
 		(pts
-			(xy 222.25 105.41) (xy 226.06 105.41)
+			(xy 208.28 106.68) (xy 213.36 106.68)
 		)
 		(stroke
 			(width 0)
@@ -5361,6 +5361,16 @@
 	)
 	(wire
 		(pts
+			(xy 220.98 106.68) (xy 226.06 106.68)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "874dd1e3-dd3d-4ad2-8b03-fa3a46a7e669")
+	)
+	(wire
+		(pts
 			(xy 173.99 124.46) (xy 193.04 124.46)
 		)
 		(stroke
@@ -5651,7 +5661,7 @@
 	)
 	(wire
 		(pts
-			(xy 226.06 101.6) (xy 226.06 105.41)
+			(xy 226.06 101.6) (xy 226.06 106.68)
 		)
 		(stroke
 			(width 0)
@@ -6585,7 +6595,7 @@
 	)
 	(global_label "N"
 		(shape input)
-		(at 222.25 105.41 180)
+		(at 208.28 106.68 180)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -6595,7 +6605,7 @@
 		)
 		(uuid "1cc53d04-32d7-4b9c-a42d-eacfca8d3f16")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 217.9343 105.41 0)
+			(at 203.9643 106.68 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -10976,6 +10986,73 @@
 			(project "SaunaPCB"
 				(path "/e6d8484d-2bb5-441d-9b2b-e37a9f2fa458/30fa358e-9a57-402a-a6f3-bf544329cd39"
 					(reference "R204")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:R")
+		(at 217.17 106.68 90)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "ef20e2fa-3717-4f34-9510-b20af51f3002")
+		(property "Reference" "R211"
+			(at 216.916 102.87 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "10K"
+			(at 216.916 104.648 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Resistor_SMD:R_1206_3216Metric"
+			(at 217.17 108.458 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 217.17 106.68 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Resistor"
+			(at 217.17 106.68 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "6ce3f572-b378-4627-9670-5f03286e6646")
+		)
+		(pin "2"
+			(uuid "ac2c4ac8-2893-4192-ac18-b6e00717fa41")
+		)
+		(instances
+			(project "SaunaPCB"
+				(path "/e6d8484d-2bb5-441d-9b2b-e37a9f2fa458/30fa358e-9a57-402a-a6f3-bf544329cd39"
+					(reference "R211")
 					(unit 1)
 				)
 			)
