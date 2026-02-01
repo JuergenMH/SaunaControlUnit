@@ -1685,6 +1685,16 @@
 		)
 		(uuid "04028ff7-c3e3-4f37-afff-35155f2741e9")
 	)
+	(text "Analog\ninput"
+		(exclude_from_sim no)
+		(at 237.49 86.614 90)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "1ecbf977-32f9-4bb0-9ecb-ca918756ba1d")
+	)
 	(text "Standby/On\nButton"
 		(exclude_from_sim no)
 		(at 19.812 59.944 0)
@@ -1746,6 +1756,16 @@
 			)
 		)
 		(uuid "73e66341-6d55-4d83-a7f7-580ff21010de")
+	)
+	(text "Digital\ninput"
+		(exclude_from_sim no)
+		(at 237.49 93.98 90)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "79909fb9-c14b-419f-b48f-16f7af62e837")
 	)
 	(text "KTY Temperature\nsensor"
 		(exclude_from_sim no)
@@ -1874,10 +1894,6 @@
 		(uuid "2e9508e4-cc0b-4a18-91f1-b5d4601a85a1")
 	)
 	(no_connect
-		(at 193.04 93.98)
-		(uuid "33300f66-35fb-4a69-9e01-d4eaf62f053c")
-	)
-	(no_connect
 		(at 193.04 99.06)
 		(uuid "3eb14035-81cb-42f5-87da-ad0c6e4c17fb")
 	)
@@ -1900,6 +1916,10 @@
 	(no_connect
 		(at 152.4 99.06)
 		(uuid "8439977b-4392-428d-adb9-6bc7c7cab9a3")
+	)
+	(no_connect
+		(at 152.4 93.98)
+		(uuid "97e7978a-c70c-4a82-9163-e0cbda58d69c")
 	)
 	(no_connect
 		(at 152.4 58.42)
@@ -1959,7 +1979,7 @@
 	)
 	(polyline
 		(pts
-			(xy 116.84 86.36) (xy 116.84 93.98)
+			(xy 116.84 86.36) (xy 116.84 91.44)
 		)
 		(stroke
 			(width 0)
@@ -1986,6 +2006,16 @@
 			(type default)
 		)
 		(uuid "25d8fb49-2954-4fd2-9d95-2010141aa89b")
+	)
+	(polyline
+		(pts
+			(xy 225.425 86.36) (xy 234.95 86.36)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "2bcd76b7-73fd-4fac-9dcd-c7d44f65b0fa")
 	)
 	(wire
 		(pts
@@ -2019,7 +2049,7 @@
 	)
 	(polyline
 		(pts
-			(xy 116.84 93.98) (xy 118.745 93.98)
+			(xy 116.84 91.44) (xy 118.11 91.44)
 		)
 		(stroke
 			(width 0)
@@ -2309,16 +2339,6 @@
 	)
 	(wire
 		(pts
-			(xy 134.62 93.98) (xy 152.4 93.98)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "9ef4f1c8-da5c-4cc5-8fe8-3c6895f66a80")
-	)
-	(wire
-		(pts
 			(xy 193.04 60.96) (xy 200.66 60.96)
 		)
 		(stroke
@@ -2387,6 +2407,16 @@
 		)
 		(uuid "b05c06e5-92c2-451b-bf17-980d5e206673")
 	)
+	(polyline
+		(pts
+			(xy 226.695 93.98) (xy 234.95 93.98)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "b350426f-3728-4c59-8ff7-5c616b2337ec")
+	)
 	(wire
 		(pts
 			(xy 46.99 64.77) (xy 52.07 64.77)
@@ -2396,6 +2426,16 @@
 			(type default)
 		)
 		(uuid "beaa8453-eb37-45a5-b7cd-a160beea6585")
+	)
+	(polyline
+		(pts
+			(xy 234.95 91.44) (xy 234.95 96.52)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "c009b259-38a6-4152-bff2-db68386931c0")
 	)
 	(wire
 		(pts
@@ -2499,6 +2539,16 @@
 	)
 	(wire
 		(pts
+			(xy 193.04 93.98) (xy 210.82 93.98)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "d8e5b034-8dd5-4a2d-b12a-4efa890fa506")
+	)
+	(wire
+		(pts
 			(xy 46.99 62.23) (xy 46.99 64.77)
 		)
 		(stroke
@@ -2586,6 +2636,16 @@
 			(type default)
 		)
 		(uuid "f2eea9d2-19d0-461b-8053-54522dff4c5f")
+	)
+	(polyline
+		(pts
+			(xy 234.95 83.82) (xy 234.95 88.9)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "f3d965aa-fad0-4f44-96e3-502fc85efc24")
 	)
 	(wire
 		(pts
@@ -2983,22 +3043,22 @@
 	)
 	(global_label "Door_Contact"
 		(shape input)
-		(at 134.62 93.98 180)
+		(at 210.82 93.98 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
-			(justify right)
+			(justify left)
 		)
 		(uuid "e6ead690-3c4e-4f83-a348-2ad029f279ca")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 119.056 93.98 0)
+			(at 226.384 93.98 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(justify right)
+				(justify left)
 				(hide yes)
 			)
 		)
