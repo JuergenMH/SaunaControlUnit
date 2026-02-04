@@ -3205,7 +3205,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "1085e9ab-3958-4f0e-8647-b5d3406b63b1")
-		(property "Reference" "#PWR0314"
+		(property "Reference" "#PWR0311"
 			(at 46.99 121.92 0)
 			(effects
 				(font
@@ -3255,7 +3255,7 @@
 		(instances
 			(project "SaunaPCB"
 				(path "/e6d8484d-2bb5-441d-9b2b-e37a9f2fa458/8da01db6-a1a1-4b01-9382-9f6e5fdc0347"
-					(reference "#PWR0314")
+					(reference "#PWR0311")
 					(unit 1)
 				)
 			)
@@ -3270,7 +3270,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "1486b6b8-937b-4125-8c06-4693bb302ff7")
-		(property "Reference" "#PWR0310"
+		(property "Reference" "#PWR0319"
 			(at 200.66 55.88 0)
 			(effects
 				(font
@@ -3321,7 +3321,7 @@
 		(instances
 			(project "SaunaPCB"
 				(path "/e6d8484d-2bb5-441d-9b2b-e37a9f2fa458/8da01db6-a1a1-4b01-9382-9f6e5fdc0347"
-					(reference "#PWR0310")
+					(reference "#PWR0319")
 					(unit 1)
 				)
 			)
@@ -3336,7 +3336,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "1eb42aee-4c09-4145-83cc-8d69a525f414")
-		(property "Reference" "R306"
+		(property "Reference" "R317"
 			(at 50.8 121.666 90)
 			(effects
 				(font
@@ -3388,7 +3388,7 @@
 		(instances
 			(project "SaunaPCB"
 				(path "/e6d8484d-2bb5-441d-9b2b-e37a9f2fa458/8da01db6-a1a1-4b01-9382-9f6e5fdc0347"
-					(reference "R306")
+					(reference "R317")
 					(unit 1)
 				)
 			)
@@ -3403,7 +3403,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "1eb85c3d-377f-4351-ac04-e7093dc7ee1d")
-		(property "Reference" "#PWR0309"
+		(property "Reference" "#PWR0317"
 			(at 142.24 88.9 0)
 			(effects
 				(font
@@ -3454,7 +3454,7 @@
 		(instances
 			(project "SaunaPCB"
 				(path "/e6d8484d-2bb5-441d-9b2b-e37a9f2fa458/8da01db6-a1a1-4b01-9382-9f6e5fdc0347"
-					(reference "#PWR0309")
+					(reference "#PWR0317")
 					(unit 1)
 				)
 			)
@@ -3469,7 +3469,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "216bd07e-7af0-44f1-9fe4-f4770802edde")
-		(property "Reference" "R302"
+		(property "Reference" "R315"
 			(at 50.8 58.166 90)
 			(effects
 				(font
@@ -3521,7 +3521,7 @@
 		(instances
 			(project "SaunaPCB"
 				(path "/e6d8484d-2bb5-441d-9b2b-e37a9f2fa458/8da01db6-a1a1-4b01-9382-9f6e5fdc0347"
-					(reference "R302")
+					(reference "R315")
 					(unit 1)
 				)
 			)
@@ -3536,7 +3536,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "2ef96b11-f533-4a51-97f0-56e7b08889fe")
-		(property "Reference" "J302"
+		(property "Reference" "J308"
 			(at 24.13 65.024 90)
 			(effects
 				(font
@@ -3588,7 +3588,7 @@
 		(instances
 			(project "SaunaPCB"
 				(path "/e6d8484d-2bb5-441d-9b2b-e37a9f2fa458/8da01db6-a1a1-4b01-9382-9f6e5fdc0347"
-					(reference "J302")
+					(reference "J308")
 					(unit 1)
 				)
 			)
@@ -3603,7 +3603,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "3ef3502e-f6e1-4e82-89ae-3040021b6077")
-		(property "Reference" "J304"
+		(property "Reference" "J310"
 			(at 24.13 128.778 90)
 			(effects
 				(font
@@ -3655,7 +3655,7 @@
 		(instances
 			(project "SaunaPCB"
 				(path "/e6d8484d-2bb5-441d-9b2b-e37a9f2fa458/8da01db6-a1a1-4b01-9382-9f6e5fdc0347"
-					(reference "J304")
+					(reference "J310")
 					(unit 1)
 				)
 			)
@@ -3671,7 +3671,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "45444525-ac33-43c7-889b-5cc1f516bbb4")
-		(property "Reference" "#PWR0301"
+		(property "Reference" "#PWR0308"
 			(at 46.99 26.67 0)
 			(effects
 				(font
@@ -3721,7 +3721,7 @@
 		(instances
 			(project "SaunaPCB"
 				(path "/e6d8484d-2bb5-441d-9b2b-e37a9f2fa458/8da01db6-a1a1-4b01-9382-9f6e5fdc0347"
-					(reference "#PWR0301")
+					(reference "#PWR0308")
 					(unit 1)
 				)
 			)
@@ -3737,7 +3737,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "494f3ba1-4e06-47ca-8286-06cbef99cdfb")
-		(property "Reference" "#PWR0303"
+		(property "Reference" "#PWR0310"
 			(at 46.99 90.17 0)
 			(effects
 				(font
@@ -3787,7 +3787,7 @@
 		(instances
 			(project "SaunaPCB"
 				(path "/e6d8484d-2bb5-441d-9b2b-e37a9f2fa458/8da01db6-a1a1-4b01-9382-9f6e5fdc0347"
-					(reference "#PWR0303")
+					(reference "#PWR0310")
 					(unit 1)
 				)
 			)
@@ -3803,7 +3803,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "4e6d7255-bb87-48ca-afa5-f4065d60e110")
-		(property "Reference" "#PWR0302"
+		(property "Reference" "#PWR0309"
 			(at 46.99 58.42 0)
 			(effects
 				(font
@@ -3853,7 +3853,7 @@
 		(instances
 			(project "SaunaPCB"
 				(path "/e6d8484d-2bb5-441d-9b2b-e37a9f2fa458/8da01db6-a1a1-4b01-9382-9f6e5fdc0347"
-					(reference "#PWR0302")
+					(reference "#PWR0309")
 					(unit 1)
 				)
 			)
@@ -3868,7 +3868,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "5135a0ff-271c-492d-8708-fc7e7825439b")
-		(property "Reference" "R301"
+		(property "Reference" "R314"
 			(at 50.8 26.416 90)
 			(effects
 				(font
@@ -3920,7 +3920,7 @@
 		(instances
 			(project "SaunaPCB"
 				(path "/e6d8484d-2bb5-441d-9b2b-e37a9f2fa458/8da01db6-a1a1-4b01-9382-9f6e5fdc0347"
-					(reference "R301")
+					(reference "R314")
 					(unit 1)
 				)
 			)
@@ -3935,7 +3935,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "5edee52a-db77-4c6b-a05b-54a361dfb28d")
-		(property "Reference" "R304"
+		(property "Reference" "R318"
 			(at 204.47 44.196 90)
 			(effects
 				(font
@@ -3987,7 +3987,7 @@
 		(instances
 			(project "SaunaPCB"
 				(path "/e6d8484d-2bb5-441d-9b2b-e37a9f2fa458/8da01db6-a1a1-4b01-9382-9f6e5fdc0347"
-					(reference "R304")
+					(reference "R318")
 					(unit 1)
 				)
 			)
@@ -4003,7 +4003,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "68281c2f-13bf-4128-b0e8-013da3d9bbb1")
-		(property "Reference" "#FLG0301"
+		(property "Reference" "#FLG0304"
 			(at 149.86 52.705 0)
 			(effects
 				(font
@@ -4053,7 +4053,7 @@
 		(instances
 			(project ""
 				(path "/e6d8484d-2bb5-441d-9b2b-e37a9f2fa458/8da01db6-a1a1-4b01-9382-9f6e5fdc0347"
-					(reference "#FLG0301")
+					(reference "#FLG0304")
 					(unit 1)
 				)
 			)
@@ -4068,7 +4068,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "70818dfe-b7cb-4ac1-8a92-a56b7fb88e39")
-		(property "Reference" "#PWR0305"
+		(property "Reference" "#PWR0313"
 			(at 52.07 76.2 0)
 			(effects
 				(font
@@ -4118,7 +4118,7 @@
 		(instances
 			(project "SaunaPCB"
 				(path "/e6d8484d-2bb5-441d-9b2b-e37a9f2fa458/8da01db6-a1a1-4b01-9382-9f6e5fdc0347"
-					(reference "#PWR0305")
+					(reference "#PWR0313")
 					(unit 1)
 				)
 			)
@@ -4133,7 +4133,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "96e95226-f883-46b7-a172-2d0a235017d4")
-		(property "Reference" "R303"
+		(property "Reference" "R316"
 			(at 50.8 89.916 90)
 			(effects
 				(font
@@ -4185,7 +4185,7 @@
 		(instances
 			(project "SaunaPCB"
 				(path "/e6d8484d-2bb5-441d-9b2b-e37a9f2fa458/8da01db6-a1a1-4b01-9382-9f6e5fdc0347"
-					(reference "R303")
+					(reference "R316")
 					(unit 1)
 				)
 			)
@@ -4200,7 +4200,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "b51c7695-4512-495e-ac37-4aa9b570e58e")
-		(property "Reference" "#PWR0304"
+		(property "Reference" "#PWR0312"
 			(at 52.07 44.45 0)
 			(effects
 				(font
@@ -4250,7 +4250,7 @@
 		(instances
 			(project "SaunaPCB"
 				(path "/e6d8484d-2bb5-441d-9b2b-e37a9f2fa458/8da01db6-a1a1-4b01-9382-9f6e5fdc0347"
-					(reference "#PWR0304")
+					(reference "#PWR0312")
 					(unit 1)
 				)
 			)
@@ -4265,7 +4265,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "be2fc086-4e90-4210-bd01-9534f7755985")
-		(property "Reference" "J301"
+		(property "Reference" "J307"
 			(at 24.13 33.528 90)
 			(effects
 				(font
@@ -4317,7 +4317,7 @@
 		(instances
 			(project "SaunaPCB"
 				(path "/e6d8484d-2bb5-441d-9b2b-e37a9f2fa458/8da01db6-a1a1-4b01-9382-9f6e5fdc0347"
-					(reference "J301")
+					(reference "J307")
 					(unit 1)
 				)
 			)
@@ -4333,7 +4333,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "c0f73dd4-745c-401d-8ab3-a3ee77e90f5e")
-		(property "Reference" "#PWR0311"
+		(property "Reference" "#PWR0320"
 			(at 200.66 71.12 0)
 			(effects
 				(font
@@ -4384,7 +4384,7 @@
 		(instances
 			(project "SaunaPCB"
 				(path "/e6d8484d-2bb5-441d-9b2b-e37a9f2fa458/8da01db6-a1a1-4b01-9382-9f6e5fdc0347"
-					(reference "#PWR0311")
+					(reference "#PWR0320")
 					(unit 1)
 				)
 			)
@@ -4399,7 +4399,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "cfa06ae5-a083-4e4c-b37b-64c6867c75a7")
-		(property "Reference" "J303"
+		(property "Reference" "J309"
 			(at 24.13 97.028 90)
 			(effects
 				(font
@@ -4451,7 +4451,7 @@
 		(instances
 			(project "SaunaPCB"
 				(path "/e6d8484d-2bb5-441d-9b2b-e37a9f2fa458/8da01db6-a1a1-4b01-9382-9f6e5fdc0347"
-					(reference "J303")
+					(reference "J309")
 					(unit 1)
 				)
 			)
@@ -4467,7 +4467,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "d8886515-5bde-4a18-ac25-4e4e248cb6f8")
-		(property "Reference" "#PWR0308"
+		(property "Reference" "#PWR0316"
 			(at 152.4 55.88 0)
 			(effects
 				(font
@@ -4518,7 +4518,7 @@
 		(instances
 			(project ""
 				(path "/e6d8484d-2bb5-441d-9b2b-e37a9f2fa458/8da01db6-a1a1-4b01-9382-9f6e5fdc0347"
-					(reference "#PWR0308")
+					(reference "#PWR0316")
 					(unit 1)
 				)
 			)
@@ -4534,7 +4534,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "df890681-3e06-4bb0-b709-c24d5417e0d5")
-		(property "Reference" "#PWR0307"
+		(property "Reference" "#PWR0318"
 			(at 152.4 101.6 0)
 			(effects
 				(font
@@ -4585,7 +4585,7 @@
 		(instances
 			(project "SaunaPCB"
 				(path "/e6d8484d-2bb5-441d-9b2b-e37a9f2fa458/8da01db6-a1a1-4b01-9382-9f6e5fdc0347"
-					(reference "#PWR0307")
+					(reference "#PWR0318")
 					(unit 1)
 				)
 			)
@@ -4601,7 +4601,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "e538badc-6f12-4c55-9560-07c83028f394")
-		(property "Reference" "#PWR0313"
+		(property "Reference" "#PWR0322"
 			(at 209.55 44.45 0)
 			(effects
 				(font
@@ -4651,7 +4651,7 @@
 		(instances
 			(project "SaunaPCB"
 				(path "/e6d8484d-2bb5-441d-9b2b-e37a9f2fa458/8da01db6-a1a1-4b01-9382-9f6e5fdc0347"
-					(reference "#PWR0313")
+					(reference "#PWR0322")
 					(unit 1)
 				)
 			)
@@ -4666,7 +4666,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "ea5cc8ff-c4ba-4009-8d3d-438c488da30a")
-		(property "Reference" "#PWR0306"
+		(property "Reference" "#PWR0314"
 			(at 52.07 107.95 0)
 			(effects
 				(font
@@ -4716,7 +4716,7 @@
 		(instances
 			(project "SaunaPCB"
 				(path "/e6d8484d-2bb5-441d-9b2b-e37a9f2fa458/8da01db6-a1a1-4b01-9382-9f6e5fdc0347"
-					(reference "#PWR0306")
+					(reference "#PWR0314")
 					(unit 1)
 				)
 			)
@@ -4732,7 +4732,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "f0afa8be-c71f-43ca-9955-ec121d9108e3")
-		(property "Reference" "U301"
+		(property "Reference" "U306"
 			(at 172.72 48.26 0)
 			(effects
 				(font
@@ -5013,7 +5013,7 @@
 		(instances
 			(project ""
 				(path "/e6d8484d-2bb5-441d-9b2b-e37a9f2fa458/8da01db6-a1a1-4b01-9382-9f6e5fdc0347"
-					(reference "U301")
+					(reference "U306")
 					(unit 1)
 				)
 			)
@@ -5028,7 +5028,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "f4f0f132-0946-497c-b570-55a4209865ac")
-		(property "Reference" "R305"
+		(property "Reference" "R319"
 			(at 213.36 44.196 90)
 			(effects
 				(font
@@ -5080,7 +5080,7 @@
 		(instances
 			(project "SaunaPCB"
 				(path "/e6d8484d-2bb5-441d-9b2b-e37a9f2fa458/8da01db6-a1a1-4b01-9382-9f6e5fdc0347"
-					(reference "R305")
+					(reference "R319")
 					(unit 1)
 				)
 			)
@@ -5096,7 +5096,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "f639e360-08e3-4b9d-b04d-8a6acd9af7ca")
-		(property "Reference" "#PWR0312"
+		(property "Reference" "#PWR0321"
 			(at 200.66 44.45 0)
 			(effects
 				(font
@@ -5146,7 +5146,7 @@
 		(instances
 			(project "SaunaPCB"
 				(path "/e6d8484d-2bb5-441d-9b2b-e37a9f2fa458/8da01db6-a1a1-4b01-9382-9f6e5fdc0347"
-					(reference "#PWR0312")
+					(reference "#PWR0321")
 					(unit 1)
 				)
 			)
