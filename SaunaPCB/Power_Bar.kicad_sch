@@ -8693,7 +8693,7 @@
 				)
 			)
 		)
-		(property "Value" "DRV5033AJxLPG"
+		(property "Value" "DRV5053"
 			(at 128.27 131.826 90)
 			(effects
 				(font
@@ -8891,7 +8891,7 @@
 				)
 			)
 		)
-		(property "Value" "DRV5033AJxLPG"
+		(property "Value" "DRV5053"
 			(at 163.83 131.572 90)
 			(effects
 				(font
@@ -8927,13 +8927,13 @@
 			)
 		)
 		(pin "3"
-			(uuid "91a6174b-6c6e-46ae-891b-6cc17016b54c")
+			(uuid "91a6174b-6c6e-46ae-891b-6cc17016b54d")
 		)
 		(pin "1"
-			(uuid "d583033a-fc62-4dc1-8e2e-dc3afb9aedea")
+			(uuid "d583033a-fc62-4dc1-8e2e-dc3afb9aedeb")
 		)
 		(pin "2"
-			(uuid "8af2ff66-8f95-4672-8724-97a11924a6ea")
+			(uuid "8af2ff66-8f95-4672-8724-97a11924a6eb")
 		)
 		(instances
 			(project ""
@@ -10020,7 +10020,7 @@
 				)
 			)
 		)
-		(property "Value" "DRV5033AJxLPG"
+		(property "Value" "DRV5053"
 			(at 92.71 131.572 90)
 			(effects
 				(font
@@ -10056,13 +10056,13 @@
 			)
 		)
 		(pin "3"
-			(uuid "91a6174b-6c6e-46ae-891b-6cc17016b54c")
+			(uuid "91a6174b-6c6e-46ae-891b-6cc17016b54e")
 		)
 		(pin "1"
-			(uuid "d583033a-fc62-4dc1-8e2e-dc3afb9aedea")
+			(uuid "d583033a-fc62-4dc1-8e2e-dc3afb9aedec")
 		)
 		(pin "2"
-			(uuid "8af2ff66-8f95-4672-8724-97a11924a6ea")
+			(uuid "8af2ff66-8f95-4672-8724-97a11924a6ec")
 		)
 		(instances
 			(project ""
