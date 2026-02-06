@@ -1,4 +1,4 @@
-27812688480094896
+27816229390543054
 Audio_Module
 Reverb_BTDR-1H
 Digital Reverberation Unit, http://www.belton.co.kr/inc/downfile.php?seq=17&file=pdf (footprint from http://www.uk-electronic.de/PDF/BTDR-1.pdf)
@@ -73423,6 +73423,27 @@ threaded screw
 4
 1
 MyConnectors
+B3B-ZR
+<b>JST ZH Connector</b>Top Entry type<br>3 pol, 1.5 mm Pitch<br>Source: <a href="http://www.jst-mfg.com/product/pdf/eng/eZH.pdf">http://www.jst-mfg.com/product/pdf/eng/eZH.pdf</a>
+
+0
+3
+3
+MyConnectors
+B4B-ZR
+<b>ZH CONNECTOR</b>  Top entry type, 1.5 mm, 4 pin 1 row<p>Source: http://www.jst.com .. eZH.pdf
+
+0
+4
+4
+MyConnectors
+B5B-ZR
+
+
+0
+5
+5
+MyConnectors
 SKEDD-6
 SKEDD holes
 SKEDD, Connector, PCB, Programming, Debug
@@ -101156,13 +101177,6 @@ Current_Coil_19X14
 0
 2
 2
-SaunaProject
-Unbenannt
-
-
-0
-0
-0
 Sensor
 ASAIR_AM2302_P2.54mm_Lead2.75mm_TabDown
 Temperature and humidity module, http://akizukidenshi.com/download/ds/aosong/AM2302.pdf
