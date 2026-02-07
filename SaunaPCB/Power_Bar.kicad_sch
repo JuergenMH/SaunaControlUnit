@@ -3758,7 +3758,7 @@
 	)
 	(rectangle
 		(start 48.895 148.59)
-		(end 168.275 191.77)
+		(end 175.26 191.77)
 		(stroke
 			(width 0)
 			(type dash)
@@ -3987,9 +3987,9 @@
 		)
 		(uuid "e9e9c805-6c13-4292-9170-532c37b6f01e")
 	)
-	(text "Power\n(green)"
+	(text "Power"
 		(exclude_from_sim no)
-		(at 163.068 174.244 0)
+		(at 162.306 176.784 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -8010,7 +8010,7 @@
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
-		(dnp yes)
+		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "01ca65d2-d735-4e29-a423-1754a4e766e9")
 		(property "Reference" "D201"
@@ -8022,7 +8022,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "1N4004"
+		(property "Value" "S1G"
 			(at 76.2 41.9099 90)
 			(effects
 				(font
@@ -8972,10 +8972,9 @@
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(fields_autoplaced yes)
 		(uuid "25235493-7f7c-454f-a856-ad511278a3a8")
 		(property "Reference" "D204"
-			(at 160.02 178.1174 90)
+			(at 159.258 178.562 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8983,8 +8982,8 @@
 				(justify right)
 			)
 		)
-		(property "Value" "LED"
-			(at 160.02 180.6574 90)
+		(property "Value" "LED 5mm green"
+			(at 159.258 180.594 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9195,7 +9194,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "1N4004"
+		(property "Value" "S1G"
 			(at 223.52 59.436 90)
 			(effects
 				(font
@@ -9347,7 +9346,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "Relais_SPDT_CO"
+		(property "Value" "RP310024"
 			(at 89.154 23.368 0)
 			(effects
 				(font
@@ -9434,7 +9433,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "Relais_SPDT_CO"
+		(property "Value" "RP310024"
 			(at 230.632 128.778 0)
 			(effects
 				(font
@@ -9925,7 +9924,7 @@
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
-		(dnp yes)
+		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "4f5e9760-82d3-4d5f-a5dc-2d5fc58d1192")
 		(property "Reference" "D202"
@@ -9937,7 +9936,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "1N4004"
+		(property "Value" "S1G"
 			(at 77.47 93.9799 90)
 			(effects
 				(font
@@ -10024,7 +10023,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "1N4004"
+		(property "Value" "S1G"
 			(at 220.726 74.93 90)
 			(effects
 				(font
@@ -10181,7 +10180,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "Relais_SPDT_CO"
+		(property "Value" "RP310024"
 			(at 159.766 76.962 0)
 			(effects
 				(font
@@ -10603,7 +10602,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "Relais_SPDT_CO"
+		(property "Value" "RP310024"
 			(at 124.46 23.622 0)
 			(effects
 				(font
@@ -11031,7 +11030,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "1N4004"
+		(property "Value" "S1G"
 			(at 220.726 90.17 90)
 			(effects
 				(font
@@ -11118,7 +11117,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "Relais_SPDT_CO"
+		(property "Value" "RP310024"
 			(at 124.206 76.962 0)
 			(effects
 				(font
@@ -12086,7 +12085,7 @@
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
-		(dnp yes)
+		(dnp no)
 		(uuid "cb2a0d38-3522-4fbe-a376-5b84ca41454e")
 		(property "Reference" "D205"
 			(at 213.36 144.7799 90)
@@ -12097,7 +12096,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "1N4004"
+		(property "Value" "S1G"
 			(at 213.36 147.3199 90)
 			(effects
 				(font
@@ -12445,7 +12444,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "Relais_SPDT_CO"
+		(property "Value" "RP310024"
 			(at 88.9 76.962 0)
 			(effects
 				(font
@@ -12463,7 +12462,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" ""
+		(property "Datasheet" "RP310024"
 			(at 99.06 93.98 0)
 			(effects
 				(font
@@ -13161,7 +13160,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "Relais_SPDT_CO"
+		(property "Value" "RP310024"
 			(at 160.274 23.368 0)
 			(effects
 				(font
