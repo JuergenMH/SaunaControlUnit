@@ -5,31 +5,37 @@
 
 // ----------------------------------------------------------------------------
 //  Arduino pin definitions
+// ----------------------------------------------------------------------------
 #define I2C_SDA     21      // default SDA for ESP32
 #define I2C_SCL     22      // ditto SCL
-
-#define LCD_ADR     0x27    // i²C default address, depends on chip (!)
-#define LCD_WIDTH   20      // 20 characters per line
-#define LCD_LINES   4       // 4 lines on display
 
 #define ENC_CLK     5       // Signal A interrupt
 #define ENC_DT      17      // Signal B to interrupt
 #define ENC_SW      18      // Signal button, to interrupt
 #define ENC_VCC     16      // control vcc of the encoder
 
+#define RELAY_1     26      // 3.3V signal for relay group #1 (safety)
+#define RELAY_2     27      // ditto relay group #2 (regulation)
+#define RELAY_3     14      // ditto relay #3 (light)
+
 // ----------------------------------------------------------------------------
 // Some commcon constants, magic nubers, ...
+// ----------------------------------------------------------------------------
 #define Temp_Min    50      // minimum temparature possible to select
 #define Temp_Max    100     // maximum temperature possible to select
 #define Temp_Def    80      // default temperature after powre on
 #define Temp_Store  3000    // time for button press to store new default
 
-#define SSID_Len  33u           // standard = 32 chars + #0
-#define PWD_Len   63u           // standard = 63 chars + #0
+#define SSID_Len    33u     // standard = 32 chars + #0
+#define PWD_Len     63u     // standard = 63 chars + #0
+
+#define LCD_ADR     0x27    // i²C default address, depends on chip (!)
+#define LCD_WIDTH   20      // 20 characters per line
+#define LCD_LINES   4       // 4 lines on display
 
 // ----------------------------------------------------------------------------
 // Global variables and definitions
-// 1. time related
+// 1. temperature related
 // ----------------------------------------------------------------------------
 unsigned int RoomTemperature    = 0;          // current room temperature
 unsigned int SaunaTemperature   = 0;          // current sauna temperature
@@ -37,6 +43,46 @@ unsigned int TargetTemperature  = Temp_Def;   // selected sauna target temperatu
 unsigned int DefaultTemperature = Temp_Def;   // (new) default temperature to be stored 
 bool TargetTemperatureChanged   = false;      // flag to the main function, target changed
 bool DefaultTemperatureChanged  = false;      // ditto but for default temperature
+
+// ----------------------------------------------------------------------------
+// Global variables and definitions
+// 2. Hardware and system related
+// ----------------------------------------------------------------------------
+unsigned int        SW_Timer_1 = 0;
+LiquidCrystal_I2C   myLCD(LCD_ADR, LCD_WIDTH, LCD_LINES);
+RotaryEncoder       myEnc(ENC_CLK, ENC_DT, ENC_SW, ENC_VCC);
+
+// ----------------------------------------------------------------------------
+// Global variables and definitions
+// 3. Relaiy application module related
+// ----------------------------------------------------------------------------
+typedef enum 
+{
+  NoCMD,
+  RelaysLx_On,
+  RelaysLx_Off,
+  RelayLight_On,
+  RelayLight_Off
+} RCommands;
+
+typedef enum      // used for both relay FSMs
+{
+  RelayInit,      // temporary state only once after init
+  Relay_Off,      // stable, relay(s) is/are off
+  Relay_PWM1,     // first phase: high PWM    (to move the system)
+  Relay_PWM2      // final phase: medium PWM  (to hold the system)
+} RelayFSM;
+
+RelayFSM    Relay1and2FSM = RelayInit; // control relay group 1 and 2
+RelayFSM    Relay3FSM = RelayInit;     // control the light relay
+
+
+
+
+
+
+// ab hier noch der alte Kram
+
 
 typedef struct
 {
@@ -133,7 +179,6 @@ uint8_t     NTP_TimeOutCtr = 0;   // counter to detect online state
 #define STRG_W      23  // switch WLAN
 #define STRG_C      03  // call configuration menu
 
-unsigned int        SW_Timer_1 = 0;
 uint8_t             MainSchedule = 0; // arduino style scheduler in main loop
 
 
