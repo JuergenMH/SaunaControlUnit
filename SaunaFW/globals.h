@@ -5,34 +5,39 @@
 
 // ----------------------------------------------------------------------------
 //  Arduino pin definitions
-#define I2C_SDA     21                   
-#define I2C_SCL     22
+#define I2C_SDA     21      // default SDA for ESP32
+#define I2C_SCL     22      // ditto SCL
 
-#define LCD_ADR     0x27
-#define LCD_WIDTH   20
-#define LCD_LINES   4
+#define LCD_ADR     0x27    // i²C default address, depends on chip (!)
+#define LCD_WIDTH   20      // 20 characters per line
+#define LCD_LINES   4       // 4 lines on display
 
-#define ENC_CLK     5
-#define ENC_DT      17
-#define ENC_SW      18
+#define ENC_CLK     5       // Signal A interrupt
+#define ENC_DT      17      // Signal B to interrupt
+#define ENC_SW      18      // Signal button, to interrupt
+#define ENC_VCC     16      // control vcc of the encoder
 
-
-#define LED_PIN   0
-
+// ----------------------------------------------------------------------------
 // Some commcon constants, magic nubers, ...
+#define Temp_Min    50      // minimum temparature possible to select
+#define Temp_Max    100     // maximum temperature possible to select
+#define Temp_Def    80      // default temperature after powre on
+#define Temp_Store  3000    // time for button press to store new default
+
 #define SSID_Len  33u           // standard = 32 chars + #0
 #define PWD_Len   63u           // standard = 63 chars + #0
-
-// These command are used a lot; 
-// to make code more compact macros are defined for that
-#define SP        Serial.print
-#define SPLF      Serial.println
-#define SW        Serial.write
 
 // ----------------------------------------------------------------------------
 // Global variables and definitions
 // 1. time related
 // ----------------------------------------------------------------------------
+unsigned int RoomTemperature    = 0;          // current room temperature
+unsigned int SaunaTemperature   = 0;          // current sauna temperature
+unsigned int TargetTemperature  = Temp_Def;   // selected sauna target temperature
+unsigned int DefaultTemperature = Temp_Def;   // (new) default temperature to be stored 
+bool TargetTemperatureChanged   = false;      // flag to the main function, target changed
+bool DefaultTemperatureChanged  = false;      // ditto but for default temperature
+
 typedef struct
 {
   uint8_t Hour;

@@ -2,8 +2,7 @@
 #include <Wire.h>
 #include <WiFi.h>
 #include <LiquidCrystal_I2C.h>
-#define ENCODER_DO_NOT_USE_INTERRUPTS
-#include <Encoder.h>
+#include <ESP32RotaryEncoder.h>
 
 #include <NTPClient.h>
 #include <WiFiUdp.h>
@@ -15,10 +14,10 @@
 // Board select: ESP32C3 Dev Module
 // ----------------------------------------------------------------------------
 const char HelloStr1[] = "Sauna Control V1.0.0";
-const char HelloStr2[] = "Setup finished.";
+//const char HelloStr2[] = "Setup finished.";
 
 LiquidCrystal_I2C   myLCD(LCD_ADR, LCD_WIDTH, LCD_LINES);
-Encoder             myEnc(ENC_DT, ENC_CLK);
+RotaryEncoder       myEnc(ENC_CLK, ENC_DT, ENC_SW, ENC_VCC);
 
 // ----------------------------------------------------------------------------
 void setup() 
@@ -27,37 +26,27 @@ void setup()
   Wire.begin(I2C_SDA, I2C_SCL); // i²C Initialisation
 	myLCD.begin();                // initialize the LCD
 	myLCD.backlight();            // Turn on the blacklight
-	myLCD.print(HelloStr1); //and print a message.
+	myLCD.print(HelloStr1);       //and print a message.
+  EncoderSetup();               // setup rotary encoder
   delay(1000);                  // establish serial monitor
-
+  myLCD.clear();                // prepare loop display
 }
 
 // ----------------------------------------------------------------------------
-unsigned int Temperature = 50;
-
 void loop() 
 {
-  static long newPos; 
-  static long EncPos = -999;
-  static float TempF = 50.0;
-  
-  newPos = myEnc.read();
-  if (newPos > EncPos)
+  if (TargetTemperatureChanged)
   {
-    TempF = TempF +0.2;
-    if (TempF > 100.0) TempF = 100.0;
+    myLCD.home();
+    myLCD.print(TargetTemperature);
+    TargetTemperatureChanged = false;
   }
-  if (newPos < EncPos)
+  if (DefaultTemperatureChanged)
   {
-    TempF = TempF -0.2;
-    if (TempF < 40.0) TempF = 40.0;
-  } 
-  if ((unsigned int)TempF != Temperature) 
-  {
-    Temperature = (unsigned int) TempF;
-    Serial.println(Temperature);   
+    myLCD.setCursor(0,1);
+    myLCD.print(DefaultTemperature);
+    DefaultTemperatureChanged = false;
   }
-    EncPos = newPos;
 }
   
 // ----------------------------------------------------------------------------
