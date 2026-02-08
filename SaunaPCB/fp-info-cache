@@ -1,4 +1,4 @@
-27816229390543054
+27818000380310413
 Audio_Module
 Reverb_BTDR-1H
 Digital Reverberation Unit, http://www.belton.co.kr/inc/downfile.php?seq=17&file=pdf (footprint from http://www.uk-electronic.de/PDF/BTDR-1.pdf)
@@ -73423,22 +73423,29 @@ threaded screw
 4
 1
 MyConnectors
+B2B-ZR
+JST Header straight RM 1,5mm
+
+0
+2
+2
+MyConnectors
 B3B-ZR
-<b>JST ZH Connector</b>Top Entry type<br>3 pol, 1.5 mm Pitch<br>Source: <a href="http://www.jst-mfg.com/product/pdf/eng/eZH.pdf">http://www.jst-mfg.com/product/pdf/eng/eZH.pdf</a>
+JST Header straight RM 1,5mm
 
 0
 3
 3
 MyConnectors
 B4B-ZR
-<b>ZH CONNECTOR</b>  Top entry type, 1.5 mm, 4 pin 1 row<p>Source: http://www.jst.com .. eZH.pdf
+JST Header straight RM 1,5mm
 
 0
 4
 4
 MyConnectors
 B5B-ZR
-
+JST Header straight RM 1,5mm
 
 0
 5

@@ -9361,7 +9361,7 @@
 				(justify right)
 			)
 		)
-		(property "Footprint" "Connector_JST:JST_EH_B2B-EH-A_1x02_P2.50mm_Vertical"
+		(property "Footprint" "MyConnectors:B2B-ZR"
 			(at 156.21 177.8 0)
 			(effects
 				(font

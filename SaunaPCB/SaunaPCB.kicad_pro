@@ -474,9 +474,16 @@
     }
   },
   "libraries": {
-    "pinned_footprint_libs": [],
+    "pinned_footprint_libs": [
+      "MyConnectors",
+      "MyESP32",
+      "MyRelays",
+      "MyFootprints"
+    ],
     "pinned_symbol_libs": [
-      "MyConnectors"
+      "MyConnectors",
+      "MyESP32",
+      "MyRelays"
     ]
   },
   "meta": {
@@ -686,7 +693,7 @@
     "page_layout_descr_file": ""
   },
   "schematic": {
-    "annotate_start_num": 200,
+    "annotate_start_num": 300,
     "bom_export_filename": "",
     "bom_fmt_presets": [],
     "bom_fmt_settings": {
