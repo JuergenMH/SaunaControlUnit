@@ -1083,6 +1083,197 @@
 			)
 			(embedded_fonts no)
 		)
+		(symbol "Device:Varistor"
+			(pin_numbers
+				(hide yes)
+			)
+			(pin_names
+				(offset 0)
+			)
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(property "Reference" "RV"
+				(at 3.175 0 90)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Value" "Varistor"
+				(at -3.175 0 90)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Footprint" ""
+				(at -1.778 0 90)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Datasheet" "~"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Description" "Voltage dependent resistor"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Sim.Name" "kicad_builtin_varistor"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Sim.Device" "SUBCKT"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Sim.Pins" "1=A 2=B"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Sim.Params" "threshold=1k"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Sim.Library" "${KICAD9_SYMBOL_DIR}/Simulation_SPICE.sp"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "ki_keywords" "VDR resistance"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "ki_fp_filters" "RV_* Varistor*"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(symbol "Varistor_0_0"
+				(text "U"
+					(at -1.778 -2.032 0)
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+			)
+			(symbol "Varistor_0_1"
+				(polyline
+					(pts
+						(xy -1.905 2.54) (xy -1.905 1.27) (xy 1.905 -1.27)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(rectangle
+					(start -1.016 -2.54)
+					(end 1.016 2.54)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+			)
+			(symbol "Varistor_1_1"
+				(pin passive line
+					(at 0 3.81 270)
+					(length 1.27)
+					(name "~"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 0 -3.81 90)
+					(length 1.27)
+					(name "~"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+			(embedded_fonts no)
+		)
 		(symbol "Diode:1N4004"
 			(pin_numbers
 				(hide yes)
@@ -3757,7 +3948,7 @@
 		(uuid c1b14d02-8a5f-4655-a4ca-363327a2be4c)
 	)
 	(rectangle
-		(start 48.895 148.59)
+		(start 38.1 148.59)
 		(end 175.26 191.77)
 		(stroke
 			(width 0)
@@ -4182,6 +4373,12 @@
 		(uuid "3fc912f0-fb1f-499c-840a-5aef9fc137d1")
 	)
 	(junction
+		(at 41.91 162.56)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "4388d2f1-3246-45f3-9132-a7252021485f")
+	)
+	(junction
 		(at 223.52 91.44)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -4390,6 +4587,12 @@
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "bf19d6fe-d9f0-478c-8ce3-42c9eccb965f")
+	)
+	(junction
+		(at 41.91 175.26)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "c137c4c0-57d3-4126-80e2-8533fb5012e5")
 	)
 	(junction
 		(at 228.6 81.28)
@@ -4620,6 +4823,16 @@
 			(type default)
 		)
 		(uuid "0ba95a50-1977-46fe-af4c-607e2d190bf3")
+	)
+	(wire
+		(pts
+			(xy 41.91 162.56) (xy 54.61 162.56)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "0bcfd694-7173-4a61-a072-339206555418")
 	)
 	(wire
 		(pts
@@ -5063,6 +5276,16 @@
 	)
 	(wire
 		(pts
+			(xy 41.91 175.26) (xy 54.61 175.26)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "368a1526-9f62-4332-8555-d15ea6ac7de5")
+	)
+	(wire
+		(pts
 			(xy 35.56 55.88) (xy 35.56 58.42)
 		)
 		(stroke
@@ -5403,7 +5626,7 @@
 	)
 	(wire
 		(pts
-			(xy 33.02 140.97) (xy 43.18 140.97)
+			(xy 33.02 140.97) (xy 40.64 140.97)
 		)
 		(stroke
 			(width 0)
@@ -5490,6 +5713,16 @@
 			(type default)
 		)
 		(uuid "58d35061-7fc4-4e2e-8b57-eb75628576f8")
+	)
+	(wire
+		(pts
+			(xy 48.26 140.97) (xy 63.5 140.97)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "5949ba27-ab3d-40d9-9cc1-869935ed52ea")
 	)
 	(wire
 		(pts
@@ -6003,7 +6236,7 @@
 	)
 	(wire
 		(pts
-			(xy 43.18 175.26) (xy 54.61 175.26)
+			(xy 35.56 175.26) (xy 41.91 175.26)
 		)
 		(stroke
 			(width 0)
@@ -6283,7 +6516,7 @@
 	)
 	(wire
 		(pts
-			(xy 33.02 138.43) (xy 43.18 138.43)
+			(xy 33.02 138.43) (xy 63.5 138.43)
 		)
 		(stroke
 			(width 0)
@@ -6343,6 +6576,16 @@
 	)
 	(wire
 		(pts
+			(xy 41.91 162.56) (xy 41.91 165.1)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "adc5ccef-b8a9-404c-b854-06b3d8d7c40b")
+	)
+	(wire
+		(pts
 			(xy 223.52 68.58) (xy 228.6 68.58)
 		)
 		(stroke
@@ -6353,7 +6596,7 @@
 	)
 	(wire
 		(pts
-			(xy 43.18 162.56) (xy 54.61 162.56)
+			(xy 35.56 162.56) (xy 41.91 162.56)
 		)
 		(stroke
 			(width 0)
@@ -6963,6 +7206,16 @@
 	)
 	(wire
 		(pts
+			(xy 41.91 172.72) (xy 41.91 175.26)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "f0474fb5-4064-45e4-ab4b-0549d1efa5e4")
+	)
+	(wire
+		(pts
 			(xy 133.35 167.64) (xy 133.35 171.45)
 		)
 		(stroke
@@ -7183,7 +7436,7 @@
 	)
 	(wire
 		(pts
-			(xy 33.02 135.89) (xy 43.18 135.89)
+			(xy 33.02 135.89) (xy 63.5 135.89)
 		)
 		(stroke
 			(width 0)
@@ -7213,7 +7466,7 @@
 	)
 	(wire
 		(pts
-			(xy 43.18 149.86) (xy 54.61 149.86)
+			(xy 35.56 149.86) (xy 54.61 149.86)
 		)
 		(stroke
 			(width 0)
@@ -7389,7 +7642,7 @@
 	)
 	(global_label "PE"
 		(shape input)
-		(at 43.18 149.86 180)
+		(at 35.56 149.86 180)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -7399,7 +7652,7 @@
 		)
 		(uuid "1ccf4573-0ba5-459b-aa41-973bdb0a5514")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 37.7758 149.86 0)
+			(at 30.1558 149.86 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7521,7 +7774,7 @@
 	)
 	(global_label "L1_ON"
 		(shape output)
-		(at 43.18 140.97 0)
+		(at 63.5 140.97 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -7531,7 +7784,7 @@
 		)
 		(uuid "49333845-26e9-4f5d-bc3d-9dcca7dbc6bc")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 52.0314 140.97 0)
+			(at 72.3514 140.97 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7565,7 +7818,7 @@
 	)
 	(global_label "L1_ON"
 		(shape input)
-		(at 43.18 175.26 180)
+		(at 35.56 175.26 180)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -7575,7 +7828,7 @@
 		)
 		(uuid "6f0de6a0-a5ef-4f0c-803e-31a4bd3636fb")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 34.3286 175.26 0)
+			(at 26.7086 175.26 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7675,7 +7928,7 @@
 	)
 	(global_label "Light_out"
 		(shape input)
-		(at 43.18 135.89 0)
+		(at 63.5 135.89 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -7685,7 +7938,7 @@
 		)
 		(uuid "abdde35f-3878-46a9-ae1b-d8c715e834fc")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 54.8131 135.89 0)
+			(at 75.1331 135.89 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7785,7 +8038,7 @@
 	)
 	(global_label "L1"
 		(shape input)
-		(at 43.18 138.43 0)
+		(at 63.5 138.43 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -7795,7 +8048,7 @@
 		)
 		(uuid "d35ed19c-7221-4675-8123-accca653e818")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 48.4028 138.43 0)
+			(at 68.7228 138.43 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7895,7 +8148,7 @@
 	)
 	(global_label "N"
 		(shape input)
-		(at 43.18 162.56 180)
+		(at 35.56 162.56 180)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -7905,7 +8158,7 @@
 		)
 		(uuid "f4f1242a-0118-46db-bcda-5362cf54cede")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 38.8643 162.56 0)
+			(at 31.2443 162.56 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8291,6 +8544,121 @@
 			(project "SaunaPCB"
 				(path "/e6d8484d-2bb5-441d-9b2b-e37a9f2fa458/30fa358e-9a57-402a-a6f3-bf544329cd39"
 					(reference "#PWR0202")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:Varistor")
+		(at 41.91 168.91 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "0be4ea46-1016-46f6-9e3d-efdb09953310")
+		(property "Reference" "RV201"
+			(at 44.45 167.8332 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "275V"
+			(at 44.45 170.3732 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Varistor:RV_Disc_D12mm_W4.2mm_P7.5mm"
+			(at 40.132 168.91 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 41.91 168.91 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Voltage dependent resistor"
+			(at 41.91 168.91 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Sim.Name" "kicad_builtin_varistor"
+			(at 41.91 168.91 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Sim.Device" "SUBCKT"
+			(at 41.91 168.91 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Sim.Pins" "1=A 2=B"
+			(at 41.91 168.91 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Sim.Params" "threshold=1k"
+			(at 41.91 168.91 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Sim.Library" "${KICAD9_SYMBOL_DIR}/Simulation_SPICE.sp"
+			(at 41.91 168.91 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "06aa1d85-3237-48d5-98e4-0c1e10408bc3")
+		)
+		(pin "2"
+			(uuid "56caa7ff-d2dd-4c1d-9248-5ab2623c3005")
+		)
+		(instances
+			(project ""
+				(path "/e6d8484d-2bb5-441d-9b2b-e37a9f2fa458/30fa358e-9a57-402a-a6f3-bf544329cd39"
+					(reference "RV201")
 					(unit 1)
 				)
 			)
@@ -8792,6 +9160,7 @@
 					(size 1.27 1.27)
 				)
 				(justify left)
+				(hide yes)
 			)
 		)
 		(property "Footprint" "MountingHole:MountingHole_3.2mm_M3_DIN965"
@@ -8856,6 +9225,7 @@
 					(size 1.27 1.27)
 				)
 				(justify left)
+				(hide yes)
 			)
 		)
 		(property "Footprint" "MountingHole:MountingHole_3.2mm_M3_DIN965"
@@ -9666,6 +10036,7 @@
 					(size 1.27 1.27)
 				)
 				(justify left)
+				(hide yes)
 			)
 		)
 		(property "Footprint" "MountingHole:MountingHole_3.2mm_M3_DIN965"
@@ -10157,6 +10528,73 @@
 			(project ""
 				(path "/e6d8484d-2bb5-441d-9b2b-e37a9f2fa458/30fa358e-9a57-402a-a6f3-bf544329cd39"
 					(reference "U206")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:Fuse")
+		(at 44.45 140.97 270)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "58a39212-c2ca-4a28-b056-dceb15e96503")
+		(property "Reference" "F202"
+			(at 44.196 143.51 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "500mA/M"
+			(at 46.482 145.288 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Fuse:Fuseholder_Cylinder-5x20mm_Schurter_0031_8201_Horizontal_Open"
+			(at 44.45 139.192 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 44.45 140.97 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Fuse in fuse holder"
+			(at 44.45 140.97 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "2"
+			(uuid "2a595a02-f3c2-4ea8-8e59-7d2bec7e00fa")
+		)
+		(pin "1"
+			(uuid "5bf87244-c925-48f2-8d27-fdab0120cd1c")
+		)
+		(instances
+			(project "SaunaPCB"
+				(path "/e6d8484d-2bb5-441d-9b2b-e37a9f2fa458/30fa358e-9a57-402a-a6f3-bf544329cd39"
+					(reference "F202")
 					(unit 1)
 				)
 			)
@@ -11637,6 +12075,7 @@
 					(size 1.27 1.27)
 				)
 				(justify left)
+				(hide yes)
 			)
 		)
 		(property "Footprint" "MountingHole:MountingHole_3.2mm_M3_DIN965"
@@ -12615,6 +13054,7 @@
 					(size 1.27 1.27)
 				)
 				(justify left)
+				(hide yes)
 			)
 		)
 		(property "Footprint" "MountingHole:MountingHole_3.2mm_M3_DIN965"

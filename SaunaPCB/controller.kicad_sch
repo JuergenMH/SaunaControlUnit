@@ -134,6 +134,192 @@
 			)
 			(embedded_fonts no)
 		)
+		(symbol "Device:Speaker_Crystal"
+			(pin_names
+				(offset 0)
+				(hide yes)
+			)
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(property "Reference" "LS"
+				(at 0.635 5.715 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify right)
+				)
+			)
+			(property "Value" "Speaker_Crystal"
+				(at 0.635 3.81 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify right)
+				)
+			)
+			(property "Footprint" ""
+				(at -0.889 -1.27 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Datasheet" "~"
+				(at -0.889 -1.27 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Description" "Crystal speaker/transducer"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "ki_keywords" "crystal speaker ultrasonic transducer"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(symbol "Speaker_Crystal_0_0"
+				(rectangle
+					(start -2.54 1.27)
+					(end 1.143 -3.81)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(rectangle
+					(start -2.032 -0.635)
+					(end 0.635 -1.905)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy -1.651 -0.254) (xy 0.381 -0.254)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy -1.651 -2.286) (xy 0.381 -2.286)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy -0.635 -0.254) (xy -0.635 0.508)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy -0.635 -2.286) (xy -0.635 -3.048)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 1.143 1.27) (xy 3.683 3.81) (xy 3.683 -6.35) (xy 1.143 -3.81)
+					)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+			)
+			(symbol "Speaker_Crystal_1_1"
+				(pin input line
+					(at -5.08 0 0)
+					(length 2.54)
+					(name "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin input line
+					(at -5.08 -2.54 0)
+					(length 2.54)
+					(name "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+			(embedded_fonts no)
+		)
 		(symbol "MyConnectors:B4B-ZR"
 			(pin_names
 				(offset 1.016)
@@ -2910,7 +3096,7 @@
 		)
 		(uuid "73e66341-6d55-4d83-a7f7-580ff21010de")
 	)
-	(text "Digital\ninput"
+	(text "Digital\nIO"
 		(exclude_from_sim no)
 		(at 212.09 76.2 90)
 		(effects
@@ -3133,16 +3319,8 @@
 		(uuid "0666db89-3e5d-49b3-bd01-1b82e0f11755")
 	)
 	(no_connect
-		(at 167.64 73.66)
-		(uuid "193535e2-9a62-4778-9bc8-5e857e64803e")
-	)
-	(no_connect
 		(at 167.64 71.12)
 		(uuid "2e9508e4-cc0b-4a18-91f1-b5d4601a85a1")
-	)
-	(no_connect
-		(at 99.06 172.72)
-		(uuid "322cd5f2-ffc9-4b26-a887-c217ca049fc0")
 	)
 	(no_connect
 		(at 167.64 81.28)
@@ -3188,10 +3366,6 @@
 		(at 167.64 66.04)
 		(uuid "de03ac0f-5ac1-46b7-9b71-f8c3ee42d14e")
 	)
-	(no_connect
-		(at 78.74 172.72)
-		(uuid "fc7c8445-2e2d-4419-81fe-420cb40dc5e9")
-	)
 	(wire
 		(pts
 			(xy 101.6 157.48) (xy 101.6 160.02)
@@ -3201,6 +3375,16 @@
 			(type default)
 		)
 		(uuid "0060bcec-8524-4f9e-b525-7fd677b7942d")
+	)
+	(wire
+		(pts
+			(xy 73.66 172.72) (xy 78.74 172.72)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "022699fe-a69d-4363-9305-febfa58f8cfe")
 	)
 	(wire
 		(pts
@@ -3261,6 +3445,16 @@
 			(type default)
 		)
 		(uuid "0d3e8f9c-fa16-4cfe-a431-eefcb99bf397")
+	)
+	(wire
+		(pts
+			(xy 73.66 175.26) (xy 76.2 175.26)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "0fe0b585-68df-41b7-a282-aba973bbadf9")
 	)
 	(wire
 		(pts
@@ -3411,6 +3605,16 @@
 			(type default)
 		)
 		(uuid "3bbe3b38-14c2-4cbe-890c-723684db800d")
+	)
+	(wire
+		(pts
+			(xy 76.2 175.26) (xy 76.2 177.8)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "3bdb23f0-809c-4067-8c73-0f0291d5f42a")
 	)
 	(wire
 		(pts
@@ -3884,6 +4088,16 @@
 	)
 	(wire
 		(pts
+			(xy 99.06 172.72) (xy 106.68 172.72)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "94d70d5c-9710-4ee0-83ab-e73ae3bcdaaa")
+	)
+	(wire
+		(pts
 			(xy 233.68 88.9) (xy 254 88.9)
 		)
 		(stroke
@@ -4094,6 +4308,16 @@
 	)
 	(wire
 		(pts
+			(xy 167.64 73.66) (xy 185.42 73.66)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "b891b74e-146f-46ad-bb61-9c164321153a")
+	)
+	(wire
+		(pts
 			(xy 236.22 109.22) (xy 242.57 109.22)
 		)
 		(stroke
@@ -4101,6 +4325,16 @@
 			(type default)
 		)
 		(uuid "bc981571-bd7b-4dbb-bfe3-e1e12f11d70e")
+	)
+	(polyline
+		(pts
+			(xy 200.66 72.39) (xy 209.55 72.39)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "bcb4ade0-f40b-4954-924c-a5bd11425f88")
 	)
 	(wire
 		(pts
@@ -4114,7 +4348,7 @@
 	)
 	(polyline
 		(pts
-			(xy 209.55 73.66) (xy 209.55 78.74)
+			(xy 209.55 72.39) (xy 209.55 78.74)
 		)
 		(stroke
 			(width 0)
@@ -4451,6 +4685,26 @@
 			(justify left bottom)
 		)
 		(uuid "4d78796b-d77b-41ef-9da2-fc8586603491")
+	)
+	(label "Summer_3V3"
+		(at 185.42 73.66 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "7f87095f-b0ef-41b8-b2de-ed5ffb6153af")
+	)
+	(label "Summer_3V3"
+		(at 106.68 172.72 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "81aab006-7cc3-439f-9666-6b08b3d73b1d")
 	)
 	(label "R3_3V3"
 		(at 111.76 66.04 0)
@@ -6005,6 +6259,76 @@
 		)
 	)
 	(symbol
+		(lib_id "Device:Speaker_Crystal")
+		(at 68.58 172.72 0)
+		(mirror y)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "55fe5060-ea3c-49c6-99c5-ded7aae9cd89")
+		(property "Reference" "LS201"
+			(at 63.5 172.7199 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "Speaker_Crystal"
+			(at 63.5 175.2599 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Buzzer_Beeper:Buzzer_TDK_PS1240P02BT_D12.2mm_H6.5mm"
+			(at 69.469 173.99 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 69.469 173.99 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Crystal speaker/transducer"
+			(at 68.58 172.72 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "2"
+			(uuid "bc154cac-7456-4f2c-950b-deaec6c0fe92")
+		)
+		(pin "1"
+			(uuid "d1e0329b-481b-41d8-aa83-953cad905d94")
+		)
+		(instances
+			(project ""
+				(path "/e6d8484d-2bb5-441d-9b2b-e37a9f2fa458/8da01db6-a1a1-4b01-9382-9f6e5fdc0347"
+					(reference "LS201")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "Device:R")
 		(at 242.57 77.47 0)
 		(unit 1)
@@ -7441,6 +7765,72 @@
 			(project "SaunaPCB"
 				(path "/e6d8484d-2bb5-441d-9b2b-e37a9f2fa458/8da01db6-a1a1-4b01-9382-9f6e5fdc0347"
 					(reference "#PWR0307")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:+5V")
+		(at 76.2 177.8 180)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "e1573082-5e4c-4627-8395-6bb0ba89e0bc")
+		(property "Reference" "#PWR0220"
+			(at 76.2 173.99 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "+5V"
+			(at 76.2 182.88 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 76.2 177.8 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 76.2 177.8 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"+5V\""
+			(at 76.2 177.8 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "cb3add46-b149-462b-9a73-25b42c694e7b")
+		)
+		(instances
+			(project "SaunaPCB"
+				(path "/e6d8484d-2bb5-441d-9b2b-e37a9f2fa458/8da01db6-a1a1-4b01-9382-9f6e5fdc0347"
+					(reference "#PWR0220")
 					(unit 1)
 				)
 			)
