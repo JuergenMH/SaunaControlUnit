@@ -33,6 +33,15 @@
 #define LCD_WIDTH   20      // 20 characters per line
 #define LCD_LINES   4       // 4 lines on display
 
+#define REL_PWM1_VALUE  90      // higher PWM value in %
+#define REL_PWM1_TIME   2000    // time for this first phase
+#define REL_PWM2_VALUE  75      // final PWM value for hold in % 
+
+#define LOAD_REL12_TIMER(x)   SW_Timer_1=x
+#define LOAD_REL3_TIMER(x)    SW_Timer_2=x
+#define REL12_TIMER_ELAPSED   SW_Timer_1 == 0
+#define REL3_TIMER_ELAPSED    SW_Timer_2 == 0
+
 // ----------------------------------------------------------------------------
 // Global variables and definitions
 // 1. temperature related
@@ -49,6 +58,8 @@ bool DefaultTemperatureChanged  = false;      // ditto but for default temperatu
 // 2. Hardware and system related
 // ----------------------------------------------------------------------------
 unsigned int        SW_Timer_1 = 0;
+unsigned int        SW_Timer_2 = 0;
+
 LiquidCrystal_I2C   myLCD(LCD_ADR, LCD_WIDTH, LCD_LINES);
 RotaryEncoder       myEnc(ENC_CLK, ENC_DT, ENC_SW, ENC_VCC);
 
@@ -67,14 +78,15 @@ typedef enum
 
 typedef enum      // used for both relay FSMs
 {
-  RelayInit,      // temporary state only once after init
+  Relay_Init,     // temporary state only once after init
   Relay_Off,      // stable, relay(s) is/are off
   Relay_PWM1,     // first phase: high PWM    (to move the system)
-  Relay_PWM2      // final phase: medium PWM  (to hold the system)
+  Relay_PWM2,     // intermediate state, #1 low, #2 high (unused on relay 3)
+  Relay_On        // final phase: medium PWM (to hold the system)
 } RelayFSM;
 
-RelayFSM    Relay1and2FSM = RelayInit; // control relay group 1 and 2
-RelayFSM    Relay3FSM = RelayInit;     // control the light relay
+RelayFSM      Relay1and2FSM   = Relay_Init;   // control relay group 1 and 2
+RelayFSM      Relay3FSM       = Relay_Init;   // control the light relay
 
 
 
@@ -179,7 +191,7 @@ uint8_t     NTP_TimeOutCtr = 0;   // counter to detect online state
 #define STRG_W      23  // switch WLAN
 #define STRG_C      03  // call configuration menu
 
-uint8_t             MainSchedule = 0; // arduino style scheduler in main loop
+
 
 
 // ----------------------------------------------------------------------------
