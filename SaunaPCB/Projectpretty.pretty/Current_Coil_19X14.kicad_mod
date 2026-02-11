@@ -3,8 +3,9 @@
 	(generator "pcbnew")
 	(generator_version "9.0")
 	(layer "F.Cu")
+	(descr "Current measure coil")
 	(property "Reference" "REF**"
-		(at -0.75 -0.5 0)
+		(at -8.5 -11.75 0)
 		(unlocked yes)
 		(layer "F.SilkS")
 		(uuid "f598e67b-7fd2-491b-9afd-3ace515dcda8")
@@ -16,9 +17,9 @@
 		)
 	)
 	(property "Value" "Current_Coil_19X14"
-		(at 0 1 0)
+		(at -3.25 -10 0)
 		(unlocked yes)
-		(layer "F.Fab")
+		(layer "F.SilkS")
 		(uuid "a2fd5fd2-fa38-4c3c-941b-4a325a047730")
 		(effects
 			(font
@@ -40,7 +41,7 @@
 			)
 		)
 	)
-	(property "Description" ""
+	(property "Description" "Home brew current coil"
 		(at 0 0 0)
 		(unlocked yes)
 		(layer "F.Fab")
@@ -891,7 +892,7 @@
 		(uuid "c9137545-029f-4390-8f3d-d48b4da43d42")
 	)
 	(fp_text user "${REFERENCE}"
-		(at 0 2.5 0)
+		(at -5.5 7.75 0)
 		(unlocked yes)
 		(layer "F.Fab")
 		(uuid "6456912d-f1fb-4d98-8423-4591655e64f7")
@@ -903,7 +904,7 @@
 		)
 	)
 	(fp_text user "${REFERENCE}"
-		(at -2.25 9.25 0)
+		(at -5.5 7.75 0)
 		(unlocked yes)
 		(layer "F.Fab")
 		(uuid "65eb3183-070e-414e-9fe1-145f2c30a538")
