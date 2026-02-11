@@ -78,13 +78,18 @@ void Relay_FSM(void)
 }
 
 // ----------------------------------------------------------------------------
+#define Ffl 2.55
+
 void Relays_Init(void)
 {
   // switch all relays to off state
   pinMode(RELAY_1, OUTPUT); digitalWrite(RELAY_1, 0);
   pinMode(RELAY_2, OUTPUT); digitalWrite(RELAY_2, 0);
   pinMode(RELAY_3, OUTPUT); digitalWrite(RELAY_3, 0);
+
+  analogWrite(RELAY_3, round(50*Ffl));
 }
+
 
 // ----------------------------------------------------------------------------
 void Relays_Function(RCommands Command)

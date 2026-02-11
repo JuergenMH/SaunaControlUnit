@@ -18,6 +18,10 @@
 #define RELAY_2     27      // ditto relay group #2 (regulation)
 #define RELAY_3     14      // ditto relay #3 (light)
 
+#define INP_DOOR    15      // door contact, low if door closed
+#define INP_LIGHT   12      // light on/off button on GPIO12
+#define INP_MODE    13      // mode: on, standby ....
+
 // ----------------------------------------------------------------------------
 // Some commcon constants, magic nubers, ...
 // ----------------------------------------------------------------------------
@@ -33,9 +37,9 @@
 #define LCD_WIDTH   20      // 20 characters per line
 #define LCD_LINES   4       // 4 lines on display
 
-#define REL_PWM1_VALUE  90      // higher PWM value in %
+#define REL_PWM1_VALUE  230     // 90%* 2,55 higher PWM value in digits
 #define REL_PWM1_TIME   2000    // time for this first phase
-#define REL_PWM2_VALUE  75      // final PWM value for hold in % 
+#define REL_PWM2_VALUE  191     // 75% * 255 final PWM value for hold in digits
 
 #define LOAD_REL12_TIMER(x)   SW_Timer_1=x
 #define LOAD_REL3_TIMER(x)    SW_Timer_2=x
@@ -88,7 +92,27 @@ typedef enum      // used for both relay FSMs
 RelayFSM      Relay1and2FSM   = Relay_Init;   // control relay group 1 and 2
 RelayFSM      Relay3FSM       = Relay_Init;   // control the light relay
 
+// ----------------------------------------------------------------------------
+// Global variables and definitions
+// 4. Debouncer and input signals relatec
+// ----------------------------------------------------------------------------
+uint8_t bnc_cnt = 0;		      // counter for debounce cycles (pointer to array)
+uint8_t bnc_dat_array[3];	    // bouncing data input array for three samples
+uint8_t deb_dat_count = 0;	  // counter for debouncer data valid decision
+uint8_t bnc_dat = 0;		      // working variable for debounce algorithm
+uint8_t deb_dat = 0;		      // debounced data variable
+uint8_t deb_dat_old = 0;      // old variable for edge detection
+bool deb_dat_valid = false;   // TRUE if debounced data is valid now
 
+bool mode_pressed = false;    // from edge generator
+bool mode_released = false;   //
+bool light_pressed = false;   //
+bool light_released = false;  //
+
+
+#define MODE_IS_PRESSED   (0 != (deb_dat && 1)) // for static signal check
+#define LIGHT_IS_PRESSED  (0 != (deb_dat && 2))
+#define DOOR_IS_CLOSED    (0 != (deb_dat && 4))
 
 
 

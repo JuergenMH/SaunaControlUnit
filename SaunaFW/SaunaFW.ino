@@ -22,6 +22,7 @@ void setup()
   EncoderSetup();               // setup rotary encoder  
   Relays_Init();                // switch all off
   MySystem_Init();              // init HW timer module
+  MyIODrive_Init();             // init debouncer and edge handler
   MySystem_StartTimer();        // OS HW Timer start
 
   delay(1000);                  // establish serial monitor
