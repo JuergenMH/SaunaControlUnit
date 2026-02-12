@@ -26,6 +26,7 @@ void setup()
   MySystem_StartTimer();        // OS HW Timer start
 
   delay(1000);                  // establish serial monitor
+  Serial.println("Setup finished...");
 }
 
 // ----------------------------------------------------------------------------

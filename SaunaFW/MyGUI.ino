@@ -12,6 +12,7 @@ void GUI_Init(void)
 	myLCD.begin();                // initialize the LCD
 	myLCD.backlight();            // Turn on the blacklight
 	myLCD.print(HelloStr1);       //and print a message.
+  
 }
 
 // ----------------------------------------------------------------------------

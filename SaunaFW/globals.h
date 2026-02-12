@@ -71,6 +71,15 @@ RotaryEncoder       myEnc(ENC_CLK, ENC_DT, ENC_SW, ENC_VCC);
 // Global variables and definitions
 // 3. Relaiy application module related
 // ----------------------------------------------------------------------------
+#define REL_PWM_HIGH_VALUE  230     // 90% * 2,55 higher PWM value digits
+#define REL_PWM_HIGH_TIME   2000    // time for this first phase
+#define REL_PWM_LOW_VALUE   191     // 75% * 2,55 final PWM value in digits
+
+#define LOAD_REL12_TIMER(x) SW_Timer_1=x
+#define LOAD_REL3_TIMER(x)  SW_Timer_2=x
+#define REL12_TIMER_ELAPSED SW_Timer_1 == 0
+#define REL3_TIMER_ELAPSED  SW_Timer_2 == 0
+
 typedef enum 
 {
   NoCMD,
@@ -89,8 +98,11 @@ typedef enum      // used for both relay FSMs
   Relay_On        // final phase: medium PWM (to hold the system)
 } RelayFSM;
 
-RelayFSM      Relay1and2FSM   = Relay_Init;   // control relay group 1 and 2
-RelayFSM      Relay3FSM       = Relay_Init;   // control the light relay
+RelayFSM  Relay1and2FSM = Relay_Init;   // control relay group 1 and 2
+RelayFSM  Relay3FSM     = Relay_Init;   // control the light relay
+
+bool      flag_Relay1and2_on  = false;  // on / off state of the relays
+bool      flag_Relay3_on      = false;  //
 
 // ----------------------------------------------------------------------------
 // Global variables and definitions
@@ -104,19 +116,26 @@ uint8_t deb_dat = 0;		      // debounced data variable
 uint8_t deb_dat_old = 0;      // old variable for edge detection
 bool deb_dat_valid = false;   // TRUE if debounced data is valid now
 
-bool mode_pressed = false;    // from edge generator
-bool mode_released = false;   //
-bool light_pressed = false;   //
-bool light_released = false;  //
+bool flag_mode_pressed   = false;  // flags to be set by the edge generator
+bool flag_mode_released  = false;  //
+bool flag_light_pressed  = false;  //
+bool flag_light_released = false;  //
+bool flag_door_opened    = false;  //
+bool flag_door_closed    = false;  //
 
 
-#define MODE_IS_PRESSED   (0 != (deb_dat && 1)) // for static signal check
-#define LIGHT_IS_PRESSED  (0 != (deb_dat && 2))
-#define DOOR_IS_CLOSED    (0 != (deb_dat && 4))
+#define PIN_MODE_PRESSED    (false == digitalRead(INP_MODE))
+#define PIN_LIGHT_PRESSED   (false == digitalRead(INP_LIGHT))
+#define PIN_DOOR_CLOSED     (false == digitalRead(INP_DOOR))
+
+#define MODE_IS_PRESSED     (0 != (deb_dat & 1)) // for static signal check
+#define LIGHT_IS_PRESSED    (0 != (deb_dat & 2))
+#define DOOR_IS_CLOSED      (0 != (deb_dat & 4))
 
 
 
 
+// ----------------------------------------------------------------------------
 // ab hier noch der alte Kram
 
 
