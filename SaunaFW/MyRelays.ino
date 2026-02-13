@@ -5,101 +5,112 @@
 
 // ----------------------------------------------------------------------------
 // Relay control FSM
-// called from 5ms Task
+// called from the last 5ms Task
 // ----------------------------------------------------------------------------
-void Relay_FSM(void)
+void MyRelay_FSM(void)
 {
-	
-  
-  Relay_Init,           // temporary state only once after init
-  Relay_Off,            // stable state:        relay is off
-  Relay_PWM,            // intermediate state:  relay on with high PWM
-  Relay_On              // stable state:        relay on with lower PWM
-} Relay_FSM;
-  
+  // --------------------------------------------------------------------------
   switch (Relay1_FSM)
   {
-    case Relay_Init:                              // temporary state only once after init
-      analogWrite(RELAY_1, 0);                    // relay roup 1 off
-      Relay1FSM = Relay_Off;                      // enter off FSM state
+    case FSM_Relay_Init:                          // temporary state only once after init
+      analogWrite(RELAY_1, 0);                    // relay group 1 off
+      Req_Rel1_off = false;                       // in case of unit is used for switch off
+      Relay1_FSM   = FSM_Relay_Off;               // enter off FSM state
       break;
       
-    case Relay_Off:                               // stable, relay group #11 is off
-      break;
-    
-    case Relay_PWM:                              // first phase: high PWM on #1 to move the system
-      if (REL1_TIMER_ELAPSED)                    // first phase elapsed?
+    case FSM_Relay_Off:                           // stable, relay group #1 is off
+      if (Req_Rel1_on)                            // switch on request?
       {
-        analogWrite(RELAY_1, REL_PWM_LOW_VALUE);  // reduce PWM for relay bank #1
-        Relay1FSM = Relay_On;               		// next state 
+        LOAD_REL1_TIMER(REL_PWM_HIGH_TIME);       // yes, load PWM imer
+        analogWrite(RELAY_1, REL_PWM_HIGH_VALUE); // Relay group 1 on now
+        Req_Rel1_on = false;                      // request is handled  
+        Relay1_FSM = FSM_Relay_PWM;               // next phase: monitor PWM timer
       }
       break;
     
-    case Relay_On:                              // final phase: medium PWM  (to hold the system)
+    case FSM_Relay_PWM:                           // first phase: high PWM on #1 to move the system
+      if (REL1_TIMER_ELAPSED)                     // first phase elapsed?
+      {
+        analogWrite(RELAY_1, REL_PWM_LOW_VALUE);  // reduce PWM for relay bank #1
+        Relay1_FSM = FSM_Relay_On;                // next state 
+      }
+      // break;                                   // oink, oink ;-)
+    
+    case FSM_Relay_On:                            // final phase: medium PWM  (to hold the system)
+      if (Req_Rel1_off)                           // switch off request?
+      {
+        Relay1_FSM = FSM_Relay_Init;              // yes, use init state for switching off
+      }
       break;
   }
-	
-	
-	
-  	
-  switch (Relay1and2FSM)
+  // --------------------------------------------------------------------------
+  switch (Relay2_FSM)
   {
-    case Relay_Init:                              // temporary state only once after init
-      analogWrite(RELAY_1, 0);                    // all off
-      analogWrite(RELAY_2, 0);
-      Relay1and2FSM = Relay_Off;                  // enter off FSM state
+    case FSM_Relay_Init:                          // temporary state only once after init
+      analogWrite(RELAY_2, 0);                    // relay group 2 off
+      Req_Rel2_off = false;                       // in case of unit is used for switch off
+      Relay2_FSM = FSM_Relay_Off;                 // enter off FSM state
       break;
       
-    case Relay_Off:                               // stable, relay 1 and 2 are off
-      flag_Relay1and2_on = false;                 // clear global flag
-      break;
-    
-    case Relay_PWM1:                              // first phase: high PWM on #1 to move the system
-      flag_Relay1and2_on = true;                  // set global flag
-      if (REL12_TIMER_ELAPSED)                    // first phase elapsed?
+    case FSM_Relay_Off:                           // stable, relay group #2 is off
+      if (Req_Rel2_on)                            // switch on request?
       {
-        analogWrite(RELAY_1, REL_PWM_LOW_VALUE);  // reduce PWM for relay bank #1
-        LOAD_REL12_TIMER(REL_PWM_HIGH_TIME);      // wait again with high power on relay group 2
-        analogWrite(RELAY_2, REL_PWM_HIGH_VALUE); // now relay bank 2 is also high powered
-        Relay1and2FSM = Relay_PWM2;               // next state 
+        LOAD_REL2_TIMER(REL_PWM_HIGH_TIME);       // yes, load PWM imer
+        analogWrite(RELAY_2, REL_PWM_HIGH_VALUE); // Relay group 1 on now
+        Req_Rel2_on = false;                      // request is handled  
+        Relay2_FSM = FSM_Relay_PWM;               // next phase: monitor PWM timer
       }
       break;
     
-    case Relay_PWM2:                              // final phase: medium PWM  (to hold the system)
-      if (REL12_TIMER_ELAPSED)                    // second phase elapsed?
+    case FSM_Relay_PWM:                           // first phase: high PWM on #1 to move the system
+      if (REL2_TIMER_ELAPSED)                     // first phase elapsed?
       {
         analogWrite(RELAY_2, REL_PWM_LOW_VALUE);  // reduce PWM for relay bank #2
-        Relay1and2FSM = Relay_On;                 // next state 
+        Relay2_FSM = FSM_Relay_On;               	// next state 
       }
-      break;
+      // break;                                   // oink, oink ;-)
     
-    case Relay_On:                                // stable relay 1 and 2 with low PWM
-      // do nothing in this state
+    case FSM_Relay_On:                            // final phase: medium PWM  (to hold the system)
+      if (Req_Rel2_off)                           // switch off request?
+      {
+        Relay2_FSM = FSM_Relay_Init;              // yes, use init state for switching off
+
+      }
       break;
   }
-  
-  switch (Relay3FSM)
+  // --------------------------------------------------------------------------
+	switch (Relay3_FSM)
   {
-    case Relay_Init:                              // temporary state only once after init
+    case FSM_Relay_Init:                          // temporary state only once after init
       analogWrite(RELAY_3, 0);                    // all off
-      Relay3FSM = Relay_Off;                      // enter off FSM state   
+      Req_Rel3_off = false;                       // in case of unit is used for switch off
+      Relay3_FSM  = FSM_Relay_Off;                // enter off FSM state   
       break;
 
-    case Relay_Off:                               // stable, relay3 is off
-      flag_Relay3_on = false;                     // clear global flag
-      break;
-
-   case Relay_PWM1:                               // first phase: high PWM pn relay 3 to move the system
-     flag_Relay3_on = true;                       // set global flag
-     if (REL12_TIMER_ELAPSED)                     // first phase elapsed?
+    case FSM_Relay_Off:                           // stable, relay3 is off
+      if (Req_Rel3_on)                            // switch on request?
       {
-        analogWrite(RELAY_3, REL_PWM_LOW_VALUE);  // reduce PWM for relay 3
-        Relay3FSM = Relay_On;                     // next state 
+        LOAD_REL3_TIMER(REL_PWM_HIGH_TIME);       // yes, load PWM imer
+        analogWrite(RELAY_3, REL_PWM_HIGH_VALUE); // Relay group 1 on now
+        Req_Rel3_on = false;                      // request is handled  
+        Relay3_FSM  = FSM_Relay_PWM;              // next phase: monitor PWM timer
       }
       break;
+
+   case FSM_Relay_PWM:                            // first phase: high PWM on relay 3 to move the system
+     if (REL3_TIMER_ELAPSED)                      // first phase elapsed?
+      {
+        analogWrite(RELAY_3, REL_PWM_LOW_VALUE);  // reduce PWM for relay 3
+        Relay3_FSM = FSM_Relay_On;                // next state 
+      }
+      // break;                                   // oink, oink ;-)
   
-    case Relay_On:                                // stable relay & low PWM
-    break;
+    case FSM_Relay_On:                            // stable relay & low PWM
+      if (Req_Rel3_off)                           // switch off request?
+      {
+        Relay3_FSM = FSM_Relay_Init;              // yes, use init state for switching off
+      }
+      break;
   }
 }
 
@@ -117,28 +128,38 @@ void Relays_Function(RCommands Command)
 {
   switch (Command)
   {
-    case RelaysLx_On:
-      LOAD_REL12_TIMER(REL_PWM_HIGH_TIME);        // wait again with high power on relay group 2
-      analogWrite(RELAY_1, REL_PWM_HIGH_VALUE);   // first relay bank to high PWM
-      Relay1and2FSM = Relay_PWM1;                 // load timer for initial high PWM phase  
-      break;                                      // reuse init to switch everything off first
+    case Cmd_Relay1_On:
+      if (FSM_Relay_Off == Relay1_FSM)      // switch on only in off state
+        Req_Rel1_on = true;                 // is off => set the request for the FSM
+      break;                                      
 
-    case RelaysLx_Off:
-      LOAD_REL12_TIMER(0);                        // stop SW timer
-      Relay1and2FSM = Relay_Init;                 // Use init code for switch off both relays 
+    case Cmd_Relay1_Off:
+      if (FSM_Relay_Off < Relay1_FSM)       // relay is in a on state?
+        Req_Rel1_off = true;                // is on => set the request for the FSM
       break;
 
-    case RelayLight_On:
-      LOAD_REL3_TIMER(REL_PWM_HIGH_TIME);         // wait again with high power on relay group 2
-      analogWrite(RELAY_3, REL_PWM_HIGH_VALUE);   // first relay bank to high PWM
-      Relay3FSM = Relay_PWM1;                     // load timer for initial high PWM phase  
+    case Cmd_Relay2_On:                     
+      if (FSM_Relay_Off == Relay2_FSM)      // switch on only in off state
+        Req_Rel2_on = true;                 // is off => set the request for the FSM
+      break;                                     
+
+    case Cmd_Relay2_Off:
+      if (FSM_Relay_Off < Relay2_FSM)       // relay is in a on state?
+        Req_Rel2_off = true;                // is on => set the request for the FSM
       break;
 
-    case RelayLight_Off:
-      LOAD_REL3_TIMER(0);                         // stop SW timer
-      Relay3FSM = Relay_Init;                     // Use init code for switch off relay 3 
+    case Cmd_Relay3_On:
+      if (FSM_Relay_Off == Relay3_FSM)      // switch on only in off state
+        Req_Rel3_on = true;                 // is on => set the request for the FSM
+      break;
+
+    case Cmd_Relay3_Off:
+      if (FSM_Relay_Off < Relay3_FSM)       // relay is in a on state?
+        Req_Rel3_off = true;                // is on => set the request for the FSM    
       break;
   }
 }
 
+// ----------------------------------------------------------------------------
+// end of the relay control module
 // ----------------------------------------------------------------------------

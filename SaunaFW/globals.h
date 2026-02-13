@@ -25,7 +25,6 @@
 #define DEBUG_1		19		// Debug pin #1
 #define DEBUG_2		23		// Debug Pin #2
 
-
 // ----------------------------------------------------------------------------
 // Some commcon constants, magic nubers, ...
 // ----------------------------------------------------------------------------
@@ -56,7 +55,7 @@
 
 // timing measurement related macros
 //#define MEASURE_TASK_1
-#define MEASURE_TASK_51		// IO drive
+//#define MEASURE_TASK_51		// IO drive + Light handler
 //#define MEASURE_TASK_52	  // Temperature measurement
 //#define MEASURE_TASK_53
 //#define MEASURE_TASK_54
@@ -80,6 +79,7 @@ bool DefaultTemperatureChanged  = false;      // ditto but for default temperatu
 // ----------------------------------------------------------------------------
 unsigned int        SW_Timer_1 = 0;
 unsigned int        SW_Timer_2 = 0;
+unsigned int        SW_Timer_3 = 0;
 
 LiquidCrystal_I2C   myLCD(LCD_ADR, LCD_WIDTH, LCD_LINES);
 RotaryEncoder       myEnc(ENC_CLK, ENC_DT, ENC_SW, ENC_VCC);
@@ -88,40 +88,51 @@ RotaryEncoder       myEnc(ENC_CLK, ENC_DT, ENC_SW, ENC_VCC);
 // Global variables and definitions
 // 3. Relaiy application module related
 // ----------------------------------------------------------------------------
-#define REL_PWM_HIGH_VALUE  230     // 90% * 2,55 higher PWM value digits
-#define REL_PWM_HIGH_TIME   2000    // time for this first phase
-#define REL_PWM_LOW_VALUE   191     // 75% * 2,55 final PWM value in digits
+#define REL_PWM_HIGH_VALUE  205     // 90% * 2,55 higher PWM value digits
+#define REL_PWM_LOW_VALUE   127     // 50% * 2,55 final PWM value in digits
+#define REL_PWM_HIGH_TIME   50      // time for high PWM in ms
 
-#define LOAD_REL12_TIMER(x) SW_Timer_1=x
-#define LOAD_REL3_TIMER(x)  SW_Timer_2=x
-#define REL12_TIMER_ELAPSED SW_Timer_1 == 0
-#define REL3_TIMER_ELAPSED  SW_Timer_2 == 0
+#define LOAD_REL1_TIMER(x)  SW_Timer_1=x
+#define LOAD_REL2_TIMER(x)  SW_Timer_2=x
+#define LOAD_REL3_TIMER(x)  SW_Timer_3=x
+
+#define REL1_TIMER_ELAPSED  SW_Timer_1 == 0
+#define REL2_TIMER_ELAPSED  SW_Timer_2 == 0
+#define REL3_TIMER_ELAPSED  SW_Timer_3 == 0
 
 // relay interface from module to the application
 typedef enum 		
 {
-  NoCMD,
-  Relay1_On,				    // standard on command relay group #1 (safety)
-  Relay1_Off,				    // ditto off
-  Relay2_On,				    // standard on command relay group #2 (regulation)
-  Relay2_Off,				    // ditto off
-  Relay1_and_2_On,      // fire both relays in a sequence
-  Relay1_and_2_Off,     // ditto both off
-  Relay3_On,            // standard on command relay #3 (light)
-  Relay3_Off            // ditto off
-} RCommands;            // commands handled by the relay command interface
+  Cmd_None,
+  Cmd_Relay1_On,				    // standard on command relay group #1 (safety)
+  Cmd_Relay1_Off,				    // ditto off
+  Cmd_Relay2_On,				    // standard on command relay group #2 (regulation)
+  Cmd_Relay2_Off,				    // ditto off
+  //Cmd_Relay1_and_2_On,      // fire both relays in a sequence
+  //Cmd_Relay1_and_2_Off,     // ditto both off
+  Cmd_Relay3_On,            // standard on command relay #3 (light)
+  Cmd_Relay3_Off            // ditto off
+} RCommands;                // commands handled by the relay command interface
 
-typedef enum            // used for all relay FSMs
+typedef enum                // used for all relay FSMs
 {
-  Relay_Init,           // temporary state only once after init
-  Relay_Off,            // stable state:        relay is off
-  Relay_PWM,            // intermediate state:  relay on with high PWM
-  Relay_On              // stable state:        relay on with lower PWM
+  FSM_Relay_Init,           // temporary state only once after init
+  FSM_Relay_Off,            // stable state:        relay is off
+  FSM_Relay_PWM,            // intermediate state:  relay on with high PWM
+  FSM_Relay_On              // stable state:        relay on with lower PWM
 } Relay_FSM;
 
-Relay_FSM  Relay1_FSM = Relay_Init;   // control relay group #1 (safety)
-Relay_FSM  Relay2_FSM = Relay_Init;   // control relay gropu #2 (regulation)
-Relay_FSM  Relay3_FSM = Relay_Init;   // control relay #3		(light)
+Relay_FSM  Relay1_FSM = FSM_Relay_Init;   // control relay group #1 (safety)
+Relay_FSM  Relay2_FSM = FSM_Relay_Init;   // control relay gropu #2 (regulation)
+Relay_FSM  Relay3_FSM = FSM_Relay_Init;   // control relay #3		(light)
+
+// interface between relay FSM and the module command interface
+bool Req_Rel1_on  = false;
+bool Req_Rel1_off = false;
+bool Req_Rel2_on  = false;
+bool Req_Rel2_off = false;
+bool Req_Rel3_on  = false;
+bool Req_Rel3_off = false;
 
 // ----------------------------------------------------------------------------
 // Global variables and definitions
@@ -142,7 +153,6 @@ bool flag_light_released = false;  //
 bool flag_door_opened    = false;  //
 bool flag_door_closed    = false;  //
 
-
 #define PIN_MODE_PRESSED    (false == digitalRead(INP_MODE))
 #define PIN_LIGHT_PRESSED   (false == digitalRead(INP_LIGHT))
 #define PIN_DOOR_CLOSED     (false == digitalRead(INP_DOOR))
@@ -151,9 +161,8 @@ bool flag_door_closed    = false;  //
 #define LIGHT_IS_PRESSED    (0 != (deb_dat & 2))
 #define DOOR_IS_CLOSED      (0 != (deb_dat & 4))
 
-
-
-
+// ----------------------------------------------------------------------------
+// end of the global header file
 // ----------------------------------------------------------------------------
 // ab hier noch der alte Kram
 

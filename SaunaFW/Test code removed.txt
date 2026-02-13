@@ -1,0 +1,50 @@
+  // Testcode für debouncer and edge detction
+  if (deb_dat_valid)
+  {
+    if (flag_mode_pressed)   Serial.println("Mode pressed.");
+    if (flag_mode_released)  Serial.println("Mode released.");
+    if (flag_light_pressed)  Serial.println("Light pressed.");
+    if (flag_light_released) Serial.println("Light released.");
+    if (flag_door_opened)    Serial.println("Door opened");
+    if (flag_door_closed)    Serial.println("Door closed");
+  }
+
+  // Testcode für debouncer, edge detction and relay module
+  if (deb_dat_valid)
+  {
+    if (flag_light_pressed && (FSM_Relay_Off == Relay3_FSM))  
+    {
+      Relays_Function(Cmd_Relay3_On);
+      Serial.println("Light on.");
+    }  
+    if (flag_light_pressed && (FSM_Relay_Off < Relay3_FSM))
+    {
+      Relays_Function(Cmd_Relay3_Off);
+      Serial.println("Light off.");
+    } 
+
+    if (flag_mode_pressed && (FSM_Relay_Off == Relay1_FSM))  
+    {
+      Relays_Function(Cmd_Relay1_On);
+      Serial.println("Relay 1 on.");
+    }  
+    if (flag_mode_pressed && (FSM_Relay_Off < Relay1_FSM))
+    {
+      Relays_Function(Cmd_Relay1_Off);
+      Serial.println("Relay 1 off.");
+    } 
+
+    if (DOOR_IS_CLOSED && (FSM_Relay_Off == Relay2_FSM))  
+    {
+      Relays_Function(Cmd_Relay2_On);
+      Serial.println("Relay 2 on.");
+    } 
+    if (!DOOR_IS_CLOSED && (FSM_Relay_On == Relay2_FSM))  
+    {
+      Relays_Function(Cmd_Relay2_Off);
+      Serial.println("Relay 2 off.");
+    } 
+
+
+
+  }

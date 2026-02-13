@@ -10,7 +10,9 @@ volatile SemaphoreHandle_t timerSemaphore;
 // ----------------------------------------------------------------------------
 void MySystem_SWTimer(void)
 {
-  if (0 != SW_Timer_1) SW_Timer_1--;
+  if (SW_Timer_1) SW_Timer_1--;
+  if (SW_Timer_2) SW_Timer_2--;
+  if (SW_Timer_3) SW_Timer_3--;
 }
 
 // ----------------------------------------------------------------------------
@@ -26,7 +28,11 @@ void MySystem_Scheduler(void)
     case 3: MyApp_5msTask_4(); break;
     case 4: MyApp_5msTask_5(); break;
   }
-  if (++TskSelect == 5) TskSelect = 0;
+  if (++TskSelect == 5) 
+  {
+    TskSelect = 0;
+    MyIODrive_ClearEdges();
+  }
 }
 
 // ----------------------------------------------------------------------------
@@ -38,6 +44,10 @@ void ARDUINO_ISR_ATTR onTimer(void)
 // ----------------------------------------------------------------------------
 void MySystem_Init(void)
 {
+  // init the two debug pins
+  pinMode(DEBUG_1, OUTPUT); digitalWrite(DEBUG_1, 0);
+  pinMode(DEBUG_2, OUTPUT); digitalWrite(DEBUG_2, 0);
+  // init the hardware timer for 1ms  
   timerSemaphore = xSemaphoreCreateBinary();  // create semaphore
   timer = timerBegin(1000000);                // timmer clock 1MHz
   timerAttachInterrupt(timer, &onTimer);      // connect ISR to timer  
@@ -70,4 +80,6 @@ void MySystem_Function(void)                        // system background functio
     MyApp_BkgTask();
   }
 }
+// ----------------------------------------------------------------------------
+// end of the system control module
 // ----------------------------------------------------------------------------
