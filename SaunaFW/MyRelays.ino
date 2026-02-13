@@ -4,11 +4,44 @@
 // ----------------------------------------------------------------------------
 
 // ----------------------------------------------------------------------------
-// Relay 1 and 2 control FSM
+// Relay control FSM
 // called from 5ms Task
 // ----------------------------------------------------------------------------
 void Relay_FSM(void)
 {
+	
+  
+  Relay_Init,           // temporary state only once after init
+  Relay_Off,            // stable state:        relay is off
+  Relay_PWM,            // intermediate state:  relay on with high PWM
+  Relay_On              // stable state:        relay on with lower PWM
+} Relay_FSM;
+  
+  switch (Relay1_FSM)
+  {
+    case Relay_Init:                              // temporary state only once after init
+      analogWrite(RELAY_1, 0);                    // relay roup 1 off
+      Relay1FSM = Relay_Off;                      // enter off FSM state
+      break;
+      
+    case Relay_Off:                               // stable, relay group #11 is off
+      break;
+    
+    case Relay_PWM:                              // first phase: high PWM on #1 to move the system
+      if (REL1_TIMER_ELAPSED)                    // first phase elapsed?
+      {
+        analogWrite(RELAY_1, REL_PWM_LOW_VALUE);  // reduce PWM for relay bank #1
+        Relay1FSM = Relay_On;               		// next state 
+      }
+      break;
+    
+    case Relay_On:                              // final phase: medium PWM  (to hold the system)
+      break;
+  }
+	
+	
+	
+  	
   switch (Relay1and2FSM)
   {
     case Relay_Init:                              // temporary state only once after init

@@ -22,6 +22,10 @@
 #define INP_LIGHT   12      // light on/off button on GPIO12
 #define INP_MODE    13      // mode: on, standby ....
 
+#define DEBUG_1		19		// Debug pin #1
+#define DEBUG_2		23		// Debug Pin #2
+
+
 // ----------------------------------------------------------------------------
 // Some commcon constants, magic nubers, ...
 // ----------------------------------------------------------------------------
@@ -37,14 +41,27 @@
 #define LCD_WIDTH   20      // 20 characters per line
 #define LCD_LINES   4       // 4 lines on display
 
-#define REL_PWM1_VALUE  230     // 90%* 2,55 higher PWM value in digits
-#define REL_PWM1_TIME   2000    // time for this first phase
-#define REL_PWM2_VALUE  191     // 75% * 255 final PWM value for hold in digits
+#define REL_PWM1_VALUE  	230     // 90%* 2,55 higher PWM value in digits
+#define REL_PWM1_TIME   	2000    // time for this first phase
+#define REL_PWM2_VALUE  	191     // 75% * 255 final PWM value for hold in digits
 
-#define LOAD_REL12_TIMER(x)   SW_Timer_1=x
-#define LOAD_REL3_TIMER(x)    SW_Timer_2=x
-#define REL12_TIMER_ELAPSED   SW_Timer_1 == 0
-#define REL3_TIMER_ELAPSED    SW_Timer_2 == 0
+// some function like macros
+#define LOAD_REL12_TIMER(x) SW_Timer_1=x
+#define LOAD_REL3_TIMER(x)  SW_Timer_2=x
+#define REL12_TIMER_ELAPSED SW_Timer_1 == 0
+#define REL3_TIMER_ELAPSED  SW_Timer_2 == 0
+
+#define SET_DEBUG_1(x)		digitalWrite(DEBUG_1, (x))
+#define SET_DEBUG_2(x)		digitalWrite(DEBUG_2, (x))
+
+// timing measurement related macros
+//#define MEASURE_TASK_1
+#define MEASURE_TASK_51		// IO drive
+//#define MEASURE_TASK_52	  // Temperature measurement
+//#define MEASURE_TASK_53
+//#define MEASURE_TASK_54
+//#define MEASURE_TASK_55
+//#define MEASURE_TASK_BKG
 
 // ----------------------------------------------------------------------------
 // Global variables and definitions
@@ -80,29 +97,31 @@ RotaryEncoder       myEnc(ENC_CLK, ENC_DT, ENC_SW, ENC_VCC);
 #define REL12_TIMER_ELAPSED SW_Timer_1 == 0
 #define REL3_TIMER_ELAPSED  SW_Timer_2 == 0
 
-typedef enum 
+// relay interface from module to the application
+typedef enum 		
 {
   NoCMD,
-  RelaysLx_On,
-  RelaysLx_Off,
-  RelayLight_On,
-  RelayLight_Off
-} RCommands;
+  Relay1_On,				    // standard on command relay group #1 (safety)
+  Relay1_Off,				    // ditto off
+  Relay2_On,				    // standard on command relay group #2 (regulation)
+  Relay2_Off,				    // ditto off
+  Relay1_and_2_On,      // fire both relays in a sequence
+  Relay1_and_2_Off,     // ditto both off
+  Relay3_On,            // standard on command relay #3 (light)
+  Relay3_Off            // ditto off
+} RCommands;            // commands handled by the relay command interface
 
-typedef enum      // used for both relay FSMs
+typedef enum            // used for all relay FSMs
 {
-  Relay_Init,     // temporary state only once after init
-  Relay_Off,      // stable, relay(s) is/are off
-  Relay_PWM1,     // first phase: high PWM    (to move the system)
-  Relay_PWM2,     // intermediate state, #1 low, #2 high (unused on relay 3)
-  Relay_On        // final phase: medium PWM (to hold the system)
-} RelayFSM;
+  Relay_Init,           // temporary state only once after init
+  Relay_Off,            // stable state:        relay is off
+  Relay_PWM,            // intermediate state:  relay on with high PWM
+  Relay_On              // stable state:        relay on with lower PWM
+} Relay_FSM;
 
-RelayFSM  Relay1and2FSM = Relay_Init;   // control relay group 1 and 2
-RelayFSM  Relay3FSM     = Relay_Init;   // control the light relay
-
-bool      flag_Relay1and2_on  = false;  // on / off state of the relays
-bool      flag_Relay3_on      = false;  //
+Relay_FSM  Relay1_FSM = Relay_Init;   // control relay group #1 (safety)
+Relay_FSM  Relay2_FSM = Relay_Init;   // control relay gropu #2 (regulation)
+Relay_FSM  Relay3_FSM = Relay_Init;   // control relay #3		(light)
 
 // ----------------------------------------------------------------------------
 // Global variables and definitions

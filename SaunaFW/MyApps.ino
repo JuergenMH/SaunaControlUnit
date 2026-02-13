@@ -10,19 +10,34 @@
 // ----------------------------------------------------------------------------
 void MyApp_1msTask(void)
 {
-
+  #ifdef MEASURE_TASK_1
+    SET_DEBUG_1(true);
+  #endif	
+  MyIODrive_ClearEdges();
+  #ifdef MEASURE_TASK_1
+    SET_DEBUG_1(false);
+  #endif	
 }
 
 // ----------------------------------------------------------------------------
 void MyApp_5msTask_1(void)
 {
+  #ifdef MEASURE_TASK_51
+    SET_DEBUG_1(true);
+  #endif	
   MyIODrive_Function();     // input debouncer
+  #ifdef MEASURE_TASK_51
+    SET_DEBUG_1(false);
+  #endif	
 }
 
 // ----------------------------------------------------------------------------
 void MyApp_5msTask_2(void)
 {
-   // Testcode für debouncer and edge detction
+  #ifdef MEASURE_TASK_52
+    SET_DEBUG_1(true);
+  #endif	
+  // Testcode für debouncer and edge detction
   if (deb_dat_valid)
   {
     if (flag_mode_pressed)   Serial.println("Mode pressed.");
@@ -32,29 +47,55 @@ void MyApp_5msTask_2(void)
     if (flag_door_opened)    Serial.println("Door opened");
     if (flag_door_closed)    Serial.println("Door closed");
   }
+  #ifdef MEASURE_TASK_52
+    SET_DEBUG_1(false);
+  #endif	
 }
 
 // ----------------------------------------------------------------------------
 void MyApp_5msTask_3(void)
 {
-
+  #ifdef MEASURE_TASK_53
+    SET_DEBUG_1(true);
+  #endif	
+  #ifdef MEASURE_TASK_53
+    SET_DEBUG_1(false);
+  #endif	
 }
 
 // ----------------------------------------------------------------------------
 void MyApp_5msTask_4(void)
 {
-
+  #ifdef MEASURE_TASK_54
+    SET_DEBUG_1(true);
+  #endif	
+  #ifdef MEASURE_TASK_54
+    SET_DEBUG_1(false);
+  #endif	
 }
 
 // ----------------------------------------------------------------------------
 void MyApp_5msTask_5(void)
 {
+  #ifdef MEASURE_TASK_55
+    SET_DEBUG_1(true);
+  #endif	
   MyIODrive_ClearEdges();
+  #ifdef MEASURE_TASK_55
+    SET_DEBUG_1(false);
+  #endif	
 }
 
 // ----------------------------------------------------------------------------
 void MyApp_BkgTask(void)
 {
-
+  #ifdef MEASURE_TASK_BKG
+    SET_DEBUG_1(true);
+  #endif	
+  MyIODrive_ClearEdges();
+  #ifdef MEASURE_TASK_BKG
+    SET_DEBUG_1(false);
+  #endif	
 }
+
 // ----------------------------------------------------------------------------
