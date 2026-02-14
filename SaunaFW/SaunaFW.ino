@@ -18,15 +18,16 @@
 void setup() 
 {
   Serial.begin(115200); 	
-  GUI_Init();                   // init all GUI related topics
   EncoderSetup();               // setup rotary encoder  
+  MyGUI_Init();                 // init all GUI related topics
   Relays_Init();                // switch all off
   MySystem_Init();              // init HW timer module
   MyIODrive_Init();             // init debouncer and edge handler
   MyKTY_Init();                 // prepare KTY analogue measurment
   MySystem_StartTimer();        // OS HW Timer start
-
   delay(1000);                  // establish serial monitor
+  MyGUI_Prepare_LCD();          // write constant text to LCD
+  Serial.println(HelloStr1);
   Serial.println("Setup finished...");
 }
 
@@ -34,7 +35,6 @@ void setup()
 void loop() 
 {
   MySystem_Function();          // call system, scheduler and so on....
-  GUI_Function();                  // all user actions in GUI function
 }
   
 // ----------------------------------------------------------------------------
