@@ -1,3 +1,17 @@
+  // Test Code für Encoder
+  if (TargetTemperatureChanged)
+  {
+    myLCD.home();
+    myLCD.print(TargetTemperature);
+    TargetTemperatureChanged = false;
+  }
+  if (DefaultTemperatureChanged)
+  {
+    myLCD.setCursor(0,1);
+    myLCD.print(DefaultTemperature);
+    DefaultTemperatureChanged = false;
+  }
+
   // Testcode für debouncer and edge detction
   if (deb_dat_valid)
   {

@@ -8,11 +8,90 @@ hw_timer_t *timer = NULL;
 volatile SemaphoreHandle_t timerSemaphore;
 
 // ----------------------------------------------------------------------------
-void MySystem_SWTimer(void)
+// Low level tasks, called directly by the scheduler at the end
+// ----------------------------------------------------------------------------
+void MyApp_1msTask(void)
 {
+  #ifdef MEASURE_TASK_1
+    SET_DEBUG_1(true);
+  #endif	
+  // handle the software timer
   if (SW_Timer_1) SW_Timer_1--;
   if (SW_Timer_2) SW_Timer_2--;
   if (SW_Timer_3) SW_Timer_3--;
+
+  #ifdef MEASURE_TASK_1
+    SET_DEBUG_1(false);
+  #endif	
+}
+
+// ----------------------------------------------------------------------------
+void MyApp_5msTask_1(void)
+{
+  #ifdef MEASURE_TASK_51    // last measurement 13.02.2026 2,8µs
+    SET_DEBUG_1(true);
+  #endif	
+    MyIODrive_Function();   // input debouncer
+  #ifdef MEASURE_TASK_51
+    SET_DEBUG_1(false);
+  #endif	
+}
+
+// ----------------------------------------------------------------------------
+void MyApp_5msTask_2(void)
+{
+  #ifdef MEASURE_TASK_52    // last measurement 14.02.2026 100µs
+    SET_DEBUG_1(true);
+  #endif	
+    MyKTY_Function();       // temperature measurement of both channels
+  #ifdef MEASURE_TASK_52
+    SET_DEBUG_1(false);
+  #endif	
+}
+
+// ----------------------------------------------------------------------------
+void MyApp_5msTask_3(void)
+{
+  #ifdef MEASURE_TASK_53
+    SET_DEBUG_1(true);
+  #endif	
+  #ifdef MEASURE_TASK_53
+    SET_DEBUG_1(false);
+  #endif	
+}
+
+// ----------------------------------------------------------------------------
+void MyApp_5msTask_4(void)
+{
+  #ifdef MEASURE_TASK_54
+    SET_DEBUG_1(true);
+  #endif	
+  #ifdef MEASURE_TASK_54
+    SET_DEBUG_1(false);
+  #endif	
+}
+
+// ----------------------------------------------------------------------------
+void MyApp_5msTask_5(void)
+{
+  #ifdef MEASURE_TASK_55
+    SET_DEBUG_1(true);
+  #endif	
+  MyRelay_FSM();            // operate all relays
+  #ifdef MEASURE_TASK_55
+    SET_DEBUG_1(false);
+  #endif	
+}
+
+// ----------------------------------------------------------------------------
+void MyApp_BkgTask(void)
+{
+  #ifdef MEASURE_TASK_BKG
+    SET_DEBUG_1(true);
+  #endif	
+  #ifdef MEASURE_TASK_BKG
+    SET_DEBUG_1(false);
+  #endif	
 }
 
 // ----------------------------------------------------------------------------
@@ -41,6 +120,8 @@ void ARDUINO_ISR_ATTR onTimer(void)
   xSemaphoreGiveFromISR(timerSemaphore, NULL);
 }
 
+// ----------------------------------------------------------------------------
+// Interface to the software
 // ----------------------------------------------------------------------------
 void MySystem_Init(void)
 {
@@ -72,14 +153,14 @@ void MySystem_Function(void)                        // system background functio
 {
   if (xSemaphoreTake(timerSemaphore, 0) == pdTRUE)  // timer isr occured?
   {  
-    MySystem_SWTimer();                             // yes, SW Timer
-    MySystem_Scheduler();                           // and scheduler
+    MySystem_Scheduler();                           // Call scheduler
   }
-  else                                              // no, background task
+  else                                              // no timer occured
   {
-    MyApp_BkgTask();
+    MyApp_BkgTask();                                // call the background task
   }
 }
+
 // ----------------------------------------------------------------------------
 // end of the system control module
 // ----------------------------------------------------------------------------

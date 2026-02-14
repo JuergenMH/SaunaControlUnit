@@ -22,8 +22,11 @@
 #define INP_LIGHT   12      // light on/off button on GPIO12
 #define INP_MODE    13      // mode: on, standby ....
 
-#define DEBUG_1		19		// Debug pin #1
-#define DEBUG_2		23		// Debug Pin #2
+#define DEBUG_1     19      // Debug pin #1
+#define DEBUG_2     23      // Debug Pin #2
+
+#define KTY_35      13      // oven sensor = KTY_35
+#define KTY_81      14      // room sensor = KTY_81
 
 // ----------------------------------------------------------------------------
 // Some commcon constants, magic nubers, ...
@@ -56,7 +59,7 @@
 // timing measurement related macros
 //#define MEASURE_TASK_1
 //#define MEASURE_TASK_51		// IO drive + Light handler
-//#define MEASURE_TASK_52	  // Temperature measurement
+#define MEASURE_TASK_52	  // Temperature measurement
 //#define MEASURE_TASK_53
 //#define MEASURE_TASK_54
 //#define MEASURE_TASK_55
@@ -66,12 +69,16 @@
 // Global variables and definitions
 // 1. temperature related
 // ----------------------------------------------------------------------------
-unsigned int RoomTemperature    = 0;          // current room temperature
-unsigned int SaunaTemperature   = 0;          // current sauna temperature
-unsigned int TargetTemperature  = Temp_Def;   // selected sauna target temperature
-unsigned int DefaultTemperature = Temp_Def;   // (new) default temperature to be stored 
-bool TargetTemperatureChanged   = false;      // flag to the main function, target changed
-bool DefaultTemperatureChanged  = false;      // ditto but for default temperature
+int RoomTemperature    = 0;               // current room temperature
+int SaunaTemperature   = 0;               // current sauna temperature
+int TargetTemperature  = Temp_Def;        // selected sauna target temperature
+int DefaultTemperature = Temp_Def;        // (new) default temperature to be stored 
+
+// flags for changed
+bool flag_SaunaTemperatureChanged   = false;  // two flags set by KTY module
+bool flag_RoomTemperatureChanged    = false;
+bool flag_TargetTemperatureChanged  = false;  // two flags set by encoder module
+bool flag_DefaultTemperatureChanged = false; 
 
 // ----------------------------------------------------------------------------
 // Global variables and definitions

@@ -8,18 +8,18 @@
 // Encoder call back function for the rotary encoder turn
 void EncoderKnobCallback( long value )
 {
-  TargetTemperature = (unsigned int) value;   // set new target temperature
-  TargetTemperatureChanged = true;            // set flag for main
+  TargetTemperature = (unsigned int) value;   	// set new target temperature
+  flag_TargetTemperatureChanged = true;       	// set flag for main
 }
 
 // ----------------------------------------------------------------------------
 // Encoder call back function for the rotary push button
 void EncoderButtonCallback( unsigned long duration )
 {
-  if (duration > Temp_Store)                  // detect long press
+  if (duration > Temp_Store)                  	// detect long press
   {
-    DefaultTemperature = TargetTemperature;   // actual target => default
-    DefaultTemperatureChanged = true;         // set flag for main
+    DefaultTemperature = TargetTemperature;   	// actual target => default
+    flag_DefaultTemperatureChanged = true;    	// set flag for main
   }
 }
 
