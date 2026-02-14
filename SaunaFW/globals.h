@@ -25,8 +25,8 @@
 #define DEBUG_1     19      // Debug pin #1
 #define DEBUG_2     23      // Debug Pin #2
 
-#define KTY_35      13      // oven sensor = KTY_35
-#define KTY_81      14      // room sensor = KTY_81
+#define KTY_35      4      // oven sensor = KTY_35
+#define KTY_81      0      // room sensor = KTY_81
 
 // ----------------------------------------------------------------------------
 // Some commcon constants, magic nubers, ...

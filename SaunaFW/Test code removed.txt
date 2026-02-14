@@ -1,3 +1,21 @@
+  // test Code für KTY Modul
+  // aktuelle Ausgaben NOK, ggf. falscher Sensor.
+  if (flag_RoomTemperatureChanged)
+  {
+    Serial.print("Room temperature: ");
+    Serial.print(RoomTemperature);
+    Serial.println("°C");
+    flag_RoomTemperatureChanged = false;
+  }
+
+  if (flag_SaunaTemperatureChanged)
+  {
+    Serial.print("Sauna temperature: ");
+    Serial.print(SaunaTemperature);
+    Serial.println("°C");
+    flag_SaunaTemperatureChanged = false;
+  }
+
   // Test Code für Encoder
   if (TargetTemperatureChanged)
   {

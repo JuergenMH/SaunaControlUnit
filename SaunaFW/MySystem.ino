@@ -55,6 +55,7 @@ void MyApp_5msTask_3(void)
   #ifdef MEASURE_TASK_53
     SET_DEBUG_1(true);
   #endif	
+    GUI_Function();
   #ifdef MEASURE_TASK_53
     SET_DEBUG_1(false);
   #endif	
