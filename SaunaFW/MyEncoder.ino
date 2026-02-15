@@ -6,7 +6,7 @@
 
 // ----------------------------------------------------------------------------
 // Encoder call back function for the rotary encoder turn
-void EncoderKnobCallback( long value )
+void MyEncoderKnobCallback( long value )
 {
   TargetTemperature = (unsigned int) value;   	// set new target temperature
   flag_TargetTemperatureChanged = true;       	// set flag for main
@@ -14,7 +14,7 @@ void EncoderKnobCallback( long value )
 
 // ----------------------------------------------------------------------------
 // Encoder call back function for the rotary push button
-void EncoderButtonCallback( unsigned long duration )
+void MyEncoderButtonCallback( unsigned long duration )
 {
   if (duration > Temp_Store)                  	// detect long press
   {
@@ -24,7 +24,7 @@ void EncoderButtonCallback( unsigned long duration )
 }
 
 // ----------------------------------------------------------------------------
-void EncoderSetup() 
+void MyEncoderSetup() 
 {
 	// This tells the library that the encoder has its own pull-up resistors
 	myEnc.setEncoderType( EncoderType::HAS_PULLUP );
@@ -38,11 +38,11 @@ void EncoderSetup()
 
 	// The function specified here will be called every time the knob is turned
 	// and the current value will be passed to it
-	myEnc.onTurned( &EncoderKnobCallback );
+	myEnc.onTurned( &MyEncoderKnobCallback );
 	
   // The function specified here will be called every time the button is pushed and
 	// the duration (in milliseconds) that the button was down will be passed to it
-	myEnc.onPressed( &EncoderButtonCallback );
+	myEnc.onPressed( &MyEncoderButtonCallback );
 
 	// This is where the inputs are configured and the interrupts get attached
 	myEnc.begin();

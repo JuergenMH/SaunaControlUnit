@@ -31,6 +31,8 @@
 // ----------------------------------------------------------------------------
 // Some commcon constants, magic nubers, ...
 // ----------------------------------------------------------------------------
+#define I2C_CLOCK   400000  // higher speed does not reduce transfer timem
+
 #define Temp_Min    50      // minimum temparature possible to select
 #define Temp_Max    100     // maximum temperature possible to select
 #define Temp_Def    80      // default temperature after powre on
@@ -59,7 +61,7 @@
 // timing measurement related macros
 //#define MEASURE_TASK_1
 //#define MEASURE_TASK_51		// IO drive + Light handler
-#define MEASURE_TASK_52	  // Temperature measurement
+//#define MEASURE_TASK_52	  // Temperature measurement
 //#define MEASURE_TASK_53
 //#define MEASURE_TASK_54
 //#define MEASURE_TASK_55

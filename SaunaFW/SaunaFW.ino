@@ -3,7 +3,6 @@
 #include <WiFi.h>
 #include <LiquidCrystal_I2C.h>
 #include <ESP32RotaryEncoder.h>
-
 #include <NTPClient.h>
 #include <WiFiUdp.h>
 #include "globals.h"
@@ -18,7 +17,7 @@
 void setup() 
 {
   Serial.begin(115200); 	
-  EncoderSetup();               // setup rotary encoder  
+  MyEncoderSetup();             // setup rotary encoder  
   MyGUI_Init();                 // init all GUI related topics
   MyRelays_Init();              // switch all off
   MySystem_Init();              // init HW timer module
