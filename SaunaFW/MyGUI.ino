@@ -16,11 +16,11 @@ void Handle_Light_Button(void)
   {
     if (FSM_Relay_Off == Relay3_FSM)
     {
-      Relays_Function(Cmd_Relay3_On);
+      MyRelays_Function(Cmd_Relay3_On);
     }
     if (FSM_Relay_Off < Relay3_FSM)
     {
-      Relays_Function(Cmd_Relay3_Off);
+      MyRelays_Function(Cmd_Relay3_Off);
     }
   }  
 

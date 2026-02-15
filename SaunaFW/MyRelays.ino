@@ -115,7 +115,7 @@ void MyRelay_FSM(void)
 }
 
 // ----------------------------------------------------------------------------
-void Relays_Init(void)
+void MyRelays_Init(void)
 {
   // switch all relays to off state
   pinMode(RELAY_1, OUTPUT); digitalWrite(RELAY_1, 0);
@@ -124,7 +124,7 @@ void Relays_Init(void)
 }
 
 // ----------------------------------------------------------------------------
-void Relays_Function(RCommands Command)
+void MyRelays_Function(RCommands Command)
 {
   switch (Command)
   {

@@ -20,7 +20,7 @@ void setup()
   Serial.begin(115200); 	
   EncoderSetup();               // setup rotary encoder  
   MyGUI_Init();                 // init all GUI related topics
-  Relays_Init();                // switch all off
+  MyRelays_Init();              // switch all off
   MySystem_Init();              // init HW timer module
   MyIODrive_Init();             // init debouncer and edge handler
   MyKTY_Init();                 // prepare KTY analogue measurment
