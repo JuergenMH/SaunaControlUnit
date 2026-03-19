@@ -1,0 +1,7 @@
+Basic information reagarding FreeRTOS and ESP32 (German):
+https://wolles-elektronikkiste.de/freertos-mit-esp32-und-arduino-nutzen
+
+Official FreeRTOS Documentaton:
+https://www.freertos.org/Documentation/02-Kernel/04-API-references/01-Task-creation/00-TaskHandle
+
+
