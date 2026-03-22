@@ -2,6 +2,8 @@
 // My SaunaFW Encoder module 
 // contains all encoder related functions 
 // Board select: ESP32C3 Dev Module
+// This module is NOT an FreeRTOS Task. It is a completely ISR driven module
+//
 // ----------------------------------------------------------------------------
 
 // ----------------------------------------------------------------------------
@@ -18,7 +20,7 @@ void MyEncoderButtonCallback( unsigned long duration )
 {
   if (duration > Temp_Store)                  	// detect long press
   {
-    DefaultTemperature = TargetTemperature;   	// actual target => default
+    DEF_TEMPERATURE = TargetTemperature;   			// actual target => default
     flag_DefaultTemperatureChanged = true;    	// set flag for main
   }
 }
